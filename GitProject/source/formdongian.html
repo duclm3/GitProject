@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .table2 label {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <form action="" style="margin: 0 auto;width: 400px;border: 1px solid black;">
+        <h3 style="text-align: center;background:tomato	;color: white">SỞ THÍCH CỦA BẠN</h3>
+        <table>
+            <tr>
+                <td style="text-align: right;color: blue">Họ và tên</td>
+                <td><input name="yourname"  type="text"/><br/></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;color: blue">Email</td>
+                <td><input name="email" type="text" style="width: 100px"/><br/></td>
+            </tr>
+        </table>
+        <table class="table2">
+            <tr>
+                <td style="text-align: right;padding-left: 10px;color: blue">Sở thích</td>
+                <td>
+                    <label><input name="hobby" value="travel" type="checkbox"/> Thể thao</label> <br/>
+                    <label><input name="hobby" value="sport" type="checkbox"/> Lướt web</label> <br/>
+                    <label><input name="hobby" value="cooking" type="checkbox"/> Du lịch</label> <br/>
+                </td>
+                <td >
+                    <label><input name="hobby" value="travel" type="checkbox"/> Âm nhạc</label> <br/>
+                    <label><input name="hobby" value="sport" type="checkbox"/> Chơi game</label> <br/>
+                    <br/>
+                </td>
+                <td>
+                    <label><input name="hobby" value="travel" type="checkbox"/> Đọc sách</label> <br/>
+                    <label><input name="hobby" value="sport" type="checkbox"/> Điện ảnh</label> <br/> <br/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Gửi thông tin" name="Submit Form">
+                </td>
+                <td>
+                    <input type="reset" value="Nhập lại" name="Reset Form">
+                </td>
+            </tr>
+        </table>
+
+
+
+
+    </form>
+
+    <form action="" style="width: 500px;background: khaki;margin: 0 auto">
+        <h3 style="color: blue;background:lightskyblue ">ĐĂNG KÍ HỌC VIÊN</h3>
+        <table>
+            <tr>
+                <td>Họ và tên</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Ngày sinh</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Giới tính</td>
+                <td>
+                    <input type="radio" name="sex" value="1"> Nam
+                    <input type="radio" name="sex" value="2"> Nữ
+                </td>
+            </tr>
+            <tr>
+                <td>Địa chỉ</td>
+                <td><textarea></textarea></td>
+            </tr>
+            <tr>
+                <td>Lớp</td>
+                <td>
+                    <select name="plan" id="plan">
+                        <option value="none" selected disabled hidden>
+                            - Chọn lớp -
+                        </option>
+                        <option value="free">java</option>
+                        <option value="starter">php</option>
+                        <option value="professional">python</option>
+                        <option value="corporate">c++</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Điện thoại</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Đăng ký">
+                    <input type="reset" value="Nhập lại">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
