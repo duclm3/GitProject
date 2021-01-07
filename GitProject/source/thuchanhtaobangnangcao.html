@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .table1 {
+            float: left;
+            width: 50%;
+            border-collapse: collapse;
+            background: orange;
+        }
+        .table1 td, th {
+            /*border: 2px solid gray;*/
+            width: 20px;
+            height: 65px;
+        }
+        .table1 tr th{
+           width: 20px;
+           height: 10px;
+           position:relative;
+           padding-bottom:1px;
+
+        }
+        .table1 tr td:first-child{
+            text-align: right;
+            border: none;
+            font-weight:bold;
+        }
+        .table1 tr td:first-child{
+            background: orange !important;
+        }
+        .table1 tr:nth-child(even) td:nth-child(odd){ /*dòng lẻ*/
+            background: black;
+        }
+        .table1 tr:nth-child(odd) td:nth-child(even){ /*dòng chẵn*/
+            background: black;
+        }
+        .table1 tr:nth-child(even) td:nth-child(even){ /*dòng lẻ*/
+            background: white;
+        }
+        .table1 tr:nth-child(odd) td:nth-child(odd){ /*dòng lẻ*/
+            background: white;
+        }
+        .lasttr td{
+            background: orange !important;
+        }
+        .table2{
+            float: left;
+            border-collapse:collapse ;
+            width: 30%;
+            top: 50%;
+            left: 50%;
+            margin-left: 140px;
+        }
+        .table2 tr th{
+            height: 10px;
+        }
+        .table2 tr th:first-child{
+            background: red;
+        }
+        .table2 tr th{
+            background: orange;
+            border: 1px solid white;
+            color: white;
+        }
+        .table2 tr th:last-child{
+            background: blue;
+        }
+        .table2 tr td{
+            text-align: center;
+            border: 2px solid gray;
+        }
+        .table2 tr:nth-child(2) td{
+            border: none;
+        }
+        .table2 tr td:first-child{
+            color: red;
+        }
+        .table2 tr td:nth-child(7){
+            color: blue;
+        }
+        sub{
+            color: black ;
+        }
+    </style>
+</head>
+<body>
+<div class="table">
+    <table class="table1">
+        <tr>
+            <th style="padding: 5px"></th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td>B</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>E</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>F</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>G</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>H</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="lasttr">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+        <h2 style="float: left;margin-left: 200px;color: blue" >Tháng 10 - October</h2><br><br><br>
+    <table class="table2">
+        <tr>
+            <th>C.Nhật</th>
+            <th>T.Hai</th>
+            <th>T.Ba</th>
+            <th>T.Tư</th>
+            <th>T.Năm</th>
+            <th>T.Sáu</th>
+            <th>T.Bảy</th>
+        </tr>
+        <tr>
+            <td>Sun</td>
+            <td>Mon</td>
+            <td>Tue</td>
+            <td>Wed</td>
+            <td>Thu</td>
+            <td>Fri</td>
+            <td>Sat</td>
+        </tr>
+        <tr>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td>1<sub>13</sub></td>
+           <td>2<sub>14</sub></td>
+           <td>3<sub>15</sub></td>
+        </tr>
+        <tr>
+            <td>4<sub>16</sub></td>
+            <td>5<sub>17</sub></td>
+            <td>6<sub>18</sub></td>
+            <td>7<sub>19</sub></td>
+            <td>8<sub>20</sub></td>
+            <td>9<sub>21</sub></td>
+            <td>10<sub>22</sub></td>
+        </tr>
+        <tr>
+            <td>11<sub>23</sub></td>
+            <td>12<sub>24</sub></td>
+            <td>13<sub>25</sub></td>
+            <td>14<sub>26</sub></td>
+            <td>15<sub>27</sub></td>
+            <td>16<sub>28</sub></td>
+            <td>17<sub>29</sub></td>
+        </tr>
+        <tr>
+            <td>18<sub>1.9</sub></td>
+            <td>19<sub>2</sub></td>
+            <td>20<sub>3</sub></td>
+            <td>21<sub>4</sub></td>
+            <td>22<sub>5</sub></td>
+            <td>23<sub>6</sub></td>
+            <td>24<sub>7</sub></td>
+        </tr>
+        <tr>
+            <td>25<sub>8</sub></td>
+            <td>26<sub>9</sub></td>
+            <td>27<sub>10</sub></td>
+            <td>28<sub>11</sub></td>
+            <td>29<sub>12</sub></td>
+            <td>30<sub>13</sub></td>
+            <td>31<sub>14</sub></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
