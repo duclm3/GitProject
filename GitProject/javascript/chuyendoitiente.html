@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th></th>
+            <th>From Currency</th>
+            <th></th>
+            <th>To Currency</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><input type="text" id="inputAmount"></td>
+            <td></td>
+            <td>
+                <select name="Nation1" id="fromCurrency">
+                    <option value="23000">VietNam</option>
+                    <option value="1">USA</option>
+                    <option value="0.85">EURO</option>
+                    <option value="39">RUP</option>
+                </select>
+            </td>
+            <td></td>
+            <td>
+                <select name="Nation2" id="toCurrency">
+                    <option value="23000">VietNam</option>
+                    <option value="1">USA</option>
+                    <option value="0.85">EURO</option>
+                    <option value="39">RUP</option>
+                </select>
+            </td>
+            <td><input type="button" value="Convert" id="convert" onclick="convert()"></td>
+        </tr>
+    </table>
+    <p id="result"></p>
+    <script>
+        function convert(){
+            let amount = document.getElementById("inputAmount").value;
+            let from = document.getElementById("fromCurrency").value;
+            let to = document.getElementById("toCurrency").value;
+
+
+            console.log(amount);
+            console.log(from);
+            console.log(to);
+            let result = amount * to / from ;
+            document.getElementById("result").innerHTML = "Result:" + result.toFixed(5);
+            document.getElementById("result").style.color = "blue";
+
+        }
+    </script>
+</body>
+</html>
