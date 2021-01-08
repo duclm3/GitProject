@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <script>
+        //Bài1
+        let inputVatLy = prompt("Nhập điểm vật lý:");
+        let inputHoaHoc = prompt("Nhập điểm hoá học:");
+        let inputSinhHoc = prompt("Nhập điểm sinh học:");
+        let vatLy = parseInt(inputVatLy);
+        let hoaHoc = parseInt(inputHoaHoc);
+        let sinhHoc = parseInt(inputSinhHoc);
+        let diemTrungBinh = (vatLy + hoaHoc + sinhHoc)/3;
+        document.write("Bài 1:"+'<br>')
+        document.write("Điểm vật lý, hoá học, sinh học:"+inputVatLy+','+inputHoaHoc+', '+inputSinhHoc + '<br>');
+        document.write("Điểm trung bình:"+diemTrungBinh+'<br>')
+        //Bài 2
+        let inputOC = prompt("Nhập 0C:")
+        let OC = parseInt(inputOC);
+        let OF = OC*9/5 + 32;
+        document.write("Bài 2:"+'<br>')
+        document.write(OC +'<sup>o</sup>C' +'=' + OF+'<sup>o</sup>F'+'<br>');
+        //Bài 3
+        let inputR = prompt("Nhập bán kính hình tròn:");
+        let R = parseInt(inputR);
+        let acreage = Math.PI * Math.pow(R,2);
+        document.write("Bài 3:"+'<br>')
+        document.write("Diện tính hình tròn:"+acreage+ " bán kính "+R+'<br>')
+        //Bài 4
+        let inputR1 = prompt("Nhập bán kính hình tròn:");
+        let R1 = parseInt(inputR1);
+        let acreage1 = 2* Math.PI * R1
+        document.write("Bài 4:"+'<br>')
+        document.write("Chu vi hình tròn:"+acreage1+ " bán kính "+R+'<br>')
+    </script>
+</body>
+</html>
