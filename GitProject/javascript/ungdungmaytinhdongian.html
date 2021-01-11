@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 290px;
+            height: 300px;
+            border: 6px black solid ;
+        }
+        #display{
+            width: 95%;
+            height: 80%;
+            text-align: right;
+            font-size: larger;
+            color: blue;
+            font-weight: bold;
+        }
+        input[type=button]{
+            background: white;
+            border: 3px darkgray solid;
+            width: 80%;
+            height: 80%;
+            color: blue;
+            font-weight: bold;
+            margin-left: 7px;
+            alignment: center;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <table >
+        <tr>
+            <td colspan="4">
+                <input id="display" name="display" value="0" size="28" maxlength="25">
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="btnNum" name="btnNum" value="1" onclick="addChar(this.form.display, '1')"></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="2" onclick="addChar(this.form.display, '2')"></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="3" onclick="addChar(this.form.display, '3')"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value="+" onclick="addChar(this.form.display, '+')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="btnNum" name="btnNum" value="4" onclick="addChar(this.form.display, '4')"></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="5" onclick="addChar(this.form.display, '5')"></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="6" onclick="addChar(this.form.display, '6')"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value="-" onclick="addChar(this.form.display, '-')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="btnNum" name="btnNum" value="7" onclick="addChar(this.form.display, '7')"></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="8" onclick="addChar(this.form.display, '8')"></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="9" onclick="addChar(this.form.display, '9')"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value="*" onclick="addChar(this.form.display, '*')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="btnTop" name="btnTop" value="C" onclick="this.form.display.value = 0 "></td>
+            <td><input type="button" class="btnNum" name="btnNum" value="0" onclick="addChar(this.form.display, '0')"></td>
+            <td><input type="button" class="btnTop" name="btnTop" value="=" onclick="if(checkNum(this.form.display.value)) { compute(this.form) }"></td>
+            <td><input type="button" class="btnMath" name="btnMath" value="/" onclick="addChar(this.form.display, '/')"></td>
+        </tr>
+    </table>
+</form>
+
+<script>
+    function addChar(input, character) {
+        if(input.value == null || input.value == "0")//Chưa có gì hoặc chưa ấn thì bằng cái ấn đầu tiên
+            input.value = character
+        else
+            input.value += character
+        console.log(input)
+    }
+    //Phương thức eval() có chức năng tính toán biểu thức toán học hoặc thức thi mã lệnh
+    //tùy thuộc vào tham số mà người dùng truyền vào khi khởi tạo phương thức.
+    //Thực hiện việc tính toán
+    function compute(form) {
+        form.display.value = eval(form.display.value);
+    }
+    //Kiểm tra xem chuỗi người dùng nhập có thể tính được không
+    function checkNum(str) {
+        var test;
+        try{
+            test = eval(str)
+            return true
+        }catch(e){
+            alert("invalid entry!")
+            return false
+        }
+    }
+</script>
+</body>
+</html>
