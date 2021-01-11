@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 style="position:absolute; left:220px; top:175px;">Do you love me?</h1>
+<input type="button" value="YES" onclick="yes()" style="position:absolute; left:285px; top:235px;"/>
+<input type="button" id="btnNo" value="NO" onmouseover="no()" style="position:absolute; left:360px; top:235px;"/>
+<script>
+    //onmouseover được kích chuột khi di chuột lên thẻ
+    function yes(){
+            alert("<3");
+    }
+    function no(){
+        var radomNumber = Math.random();
+        document.getElementById("btnNo").style.left = Math.random()*600 + 'px';
+        document.getElementById("btnNo").style.top = Math.random()*600+ 'px';
+    }
+</script>
+</body>
+</html>
