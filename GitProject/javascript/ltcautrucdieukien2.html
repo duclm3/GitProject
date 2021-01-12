@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Bài 1
+    // document.write("<p>Bài 1</p>");
+    // var doC = prompt("Nhập vào độ c:","");
+    // document.write("<p>Độ F là"+(doC * (9/5) + 32)+"</p>")
+    // //Bài 2
+    // document.write("<p>Bài 2</p>");
+    // var met = prompt("Nhập số met:","");
+    // document.write("<p>Số feet là"+(met*3.2808)+"</p>")
+    // //Bài 3
+    // document.write("<p>Bài 3</p>");
+    // var ahv = prompt("Nhập độ dài cạnh a:","");
+    // document.write("<p>Diện tích hình vuông là"+(ahv*ahv)+"</p>")
+    // //Bài 4
+    // document.write("<p>Bài 4</p>");
+    // var ahcn = prompt("Nhập độ dài cạnh a:","");
+    // var bhcn = prompt("Nhập độ dài cạnh b:","");
+    // document.write("<p>Diện tích hình chữ nhật là:"+(ahcn*bhcn)+"</p>")
+    // //Bài 5
+    // document.write("<p>Bài 5</p>");
+    // var atgv = prompt("Nhập độ dài cạnh a:","");
+    // var btgv = prompt("Nhập độ dài cạnh b:","");
+    // document.write("<p>Diện tích tam giác vuông là:"+(1/2 * atgv*btgv)+"</p>")
+    // //Bài 6
+    // document.write("<p>Bài 6</p>");
+    // var hsa1 = prompt("Nhập hệ số a:","");
+    // var hsb1 = prompt("Nhập hệ số b:","");
+    // document.write("<p>Phương trình có nhiệm là:"+(-hsb1/hsa1)+"</p>")
+    //Bài 7
+    document.write("<p>Bài 7</p>");
+    var hsa2 = prompt("Nhập hệ số a:","");
+    var hsb2 = prompt("Nhập hệ số b:","");
+    var hsc2 = prompt("Nhập hệ số c:","");
+    if(Number.parseInt(hsa2) && Number.parseInt(hsb2) && Number.parseInt(hsc2) && hsa2!=0){
+        var delta = hsb2**2 - 4 * hsa2 * hsc2;
+        if(delta < 0){
+            document.write("<p>Phương trình vô nhiệm</p>")
+        }else if(delta == 0){
+            document.write("<p>Phương trình có nhiệm kép:"+(-hsb2/(2*hsa2))+"</p>")
+        }else{
+            document.write("<p>Phương trình có 2 nhiệm phân biệt:x<sub>1</sub>="+((-hsb2+Math.sqrt(delta))/(2*hsa2))+
+                ";x<sub>2</sub>="+((-hsb2-Math.sqrt(delta))/(2*hsa2))+"</p>")
+        }
+    }
+    //Bài 8
+    document.write("<p>Bài 8</p>");
+    var tuoi = prompt("Nhập tuổi:","")
+    if(Number.parseInt(tuoi)){
+        if(tuoi<120 && tuoi > 0){
+            document.write("<p>Đây là tuổi của một người bình thường.</p>")
+        }else{
+            document.write("<p>Chưa có người tuổi này.</p>")
+        }
+    }else{
+        document.write("<p>Đây không phải là tuổi.</p>")
+    }
+    //Bài 9
+    document.write("<p>Bài 9</p>");
+    var atg = prompt("Nhập cạnh a:","");
+    var btg = prompt("Nhập cạnh b:","");
+    var ctg = prompt("Nhập cạnh c:","");
+    if(Number.parseFloat(atg) && Number.parseFloat(btg) && Number.parseFloat(ctg)){
+        if(atg > 0 && btg > 0 && ctg > 0){
+            if((atg + btg > ctg) && (btg + ctg > a) && (atg + ctg > btg)){
+                document.write("<p>3 cạnh này tạo thành một tam giác.</p>")
+            }else{
+                document.write("<p>3 cạnh này không tạo thành một tam giác.</p>")
+            }
+        }else{
+            document.write("<p>3 cạnh này không tạo thành một tam giác.</p>")
+        }
+    }else{
+        document.write("<p>Đây không phải là tam giác</p>")
+    }
+    //Bài 10
+    document.write("<p>Bài 10</p>");
+    /*
+    TT	    Số kWh sử dụng	        Giá bán điện (đồng/kWh)
+    Bậc 1	Cho kWh từ 0 - 50	    1.678
+    Bậc 2	Cho kWh từ 51 - 100	    1.734
+    Bậc 3	Cho kWh từ 101 - 200	2.014
+    Bậc 4	Cho kWh từ 201 - 300	2.536
+    Bậc 5	Cho kWh từ 301 - 400	2.834
+    Bậc 6	Cho kWh từ 401 trở lên	2.927
+    */
+    var soDien = prompt("Nhập vào số kWh điện đã sử dụng:","");
+    var tienDien;
+    var bac1=1678, bac2=1734, bac3=2014, bac4=2536, bac5=2834, bac6=2927;
+    if(soDien<0){
+        document.write("<p>Số tiền điện phải > 0</p>")
+    }else if(soDien<=50){
+        tienDien = soDien * bac1;
+        document.write("<p>Số tiền điện phải trả là:"+tienDien+"</p>")
+    }else if(soDien<=100){
+        tienDien=50*bac1+((soDien-50)*bac2);
+        document.write("<p>Số tiền điện phải trả là:"+tienDien+"</p>")
+    }else if(soDien<=200){
+        tienDien=50*bac1+(50*bac2)+((soDien-100)*bac3);
+        document.write("<p>Số tiền điện phải trả là:"+tienDien+"</p>")
+    }else if(soDien<=300){
+        tienDien=50*bac1+(50*bac2)+(100*bac3)+((soDien-200)*bac4);
+        document.write("<p>Số tiền điện phải trả là:"+tienDien+"</p>")
+    }else if(soDien<=400){
+        tienDien=50*bac1+(50*bac2)+(100*bac3)+(100*bac4)+((soDien-300)*bac5);
+        document.write("<p>Số tiền điện phải trả là:"+tienDien+"</p>")
+    }else if(soDien>400){
+        tienDien=50*bac1+(50*bac2)+(100*bac3)+(100*bac4)+(100*bac5)+((soDien-400)*bac6);
+        document.write("<p>Số tiền điện phải trả là:"+tienDien+"</p>")
+    }
+    //Bài 11
+    document.write("<p>Bài 11</p>");
+    const mot_trieu = Math.pow(10,6);
+    var thuNhapCaNhan = prompt("Nhập số tiền lương hàng tháng:","");
+    if(Number.parseInt(thuNhapCaNhan) && thuNhapCaNhan >= 0){
+        if(thuNhapCaNhan == 5*mot_trieu){
+            document.write("<p>Tiền thuế bạn phải trả là:"+(thuNhapCaNhan*5/100)+"</p>")
+        }else if( thuNhapCaNhan >5*mot_trieu && thuNhapCaNhan <= 10*mot_trieu ){
+            document.write("<p>Tiền thuế bạn phải trả là:"+(thuNhapCaNhan*10/100)+"</p>")
+        }else if(thuNhapCaNhan > 10*mot_trieu && thuNhapCaNhan <= 18*mot_trieu){
+            document.write("<p>Tiền thuế bạn phải trả là:"+(thuNhapCaNhan*15/100)+"</p>")
+        }else if(thuNhapCaNhan > 18*mot_trieu && thuNhapCaNhan <= 32*mot_trieu){
+            document.write("<p>Tiền thuế bạn phải trả là:"+(thuNhapCaNhan*20/100)+"</p>")
+        }else if(thuNhapCaNhan > 32*mot_trieu && thuNhapCaNhan <= 52*mot_trieu){
+            document.write("<p>Tiền thuế bạn phải trả là:"+(thuNhapCaNhan*25/100)+"</p>")
+        }else if(thuNhapCaNhan > 52*mot_trieu && thuNhapCaNhan <= 80*mot_trieu){
+            document.write("<p>Tiền thuế bạn phải trả là:"+(thuNhapCaNhan*30/100)+"</p>")
+        }else {
+            document.write("<p>Tiền thuế bạn phải trả là:"+(thuNhapCaNhan*35/100)+"</p>")
+        }
+    }
+    //Bài 12
+    var soTienVay = prompt("Nhập số tiền muốn vay:","");
+    var soThangVay = prompt("Nhập số tháng vay:","");
+    var laiSuatHangThang = prompt("Lãi suất hàng tháng:","");
+    var tienLai = 0;
+    for (var i = 0;i<soThangVay;i++){
+        tienlai+= soTienVay*laiSuatHangThang;
+    }
+    document.write("<p>Số tiền lãi hàng tháng là:"+tienLai+"</p>")
+</script>
+</body>
+</html>
