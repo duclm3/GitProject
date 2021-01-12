@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Bài 1
+    document.write("<p>Bài 1</p>");
+    var a = prompt("a:","");
+    var b = prompt("b:","");
+    if(a%b==0){
+        document.write("<p> "+ a+ " chia hết cho "+ b +" </p>");
+    }else{
+        document.write("<p> "+ a+ " không chia hết cho "+ b +" </p>");
+    }
+    //Bài 2
+    document.write("<p>Bài 2</p>");
+    var tuoi = prompt("Nhập tuổi:","");
+    if(tuoi == 15){
+        document.write("<p> "+ tuoi+ " đủ điều kiện học lớp 10 </p>");
+    }else{
+        document.write("<p> "+ tuoi+ " không đủ điều kiện học lớp 10 </p>");
+    }
+    //Bài 3
+    document.write("<p>Bài 3</p>");
+    var interger = prompt("Nhập vào một số nguyên.","")
+    if (Number.parseInt(interger)){
+        if(interger > 0){
+            document.write("<p> "+ interger+ " > 0 </p>");
+        }else if (interger==0){
+            document.write("<p> "+ interger+ " = 0 </p>");
+        }else{
+            document.write("<p> "+ interger+ " < 0 </p>");
+        }
+    }else{
+        document.write("<p> "+ interger+ " không phải là số nguyên. </p>");
+    }
+    //Bài 4
+    document.write("<p>Bài 4</p>");
+    var interger1 = prompt("Nhập số nguyên thứ 1:","");
+    var interger2 = prompt("Nhập số nguyên thứ 2:","");
+    var interger3 = prompt("Nhập số nguyên thứ 3:","");
+    if (Number.parseInt(interger1) && Number.parseInt(interger2) && Number.parseInt(interger3)){
+        if (interger1 > interger2 && interger1 > interger3){
+            document.write("<p> "+ interger1+ " là lớn nhất trong dãy "+interger1+","+interger2+","+interger3+ "</p>");
+        }else if(interger2 > interger1 && interger2 > interger3){
+            document.write("<p> "+ interger2+ " là lớn nhất trong dãy "+interger1+","+interger2+","+interger3+ "</p>");
+        }else {
+            document.write("<p> "+ interger3+ " là lớn nhất trong dãy "+interger1+","+interger2+","+interger3+ "</p>");
+        }
+    }else{
+        document.write("<p> "+ interger+ " không phải là số nguyên. </p>");
+    }
+    //Bài 5
+    document.write("<p>Bài 5</p>");
+    var diem = prompt("Nhập điểm:","");
+    if (Number.parseFloat(diem)){
+        if(diem >=9.0 && diem <=10 ){
+            document.write("<p>"+diem+" là hạng A </p>");
+        }else if(diem >=7.0 && diem<9.0){
+            document.write("<p>"+diem+" là hạng B </p>");
+        }else if(diem >=5.0 && diem < 7.0){
+            document.write("<p>"+diem+" là hạng C </p>");
+        }else if(diem < 5.0 && diem >= 0){
+            document.write("<p>"+diem+" là hạng D </p>");
+        }else {
+            document.write("<p> Không có loại điểm này </p>");
+        }
+    }else{
+        document.write("<p> "+ diem+ " không phải là điểm số. </p>");
+    }
+    //Bài 6
+    document.write("<p>Bài 6</p>");
+    var tongDoanhThu = prompt("Nhập tổng doanh thu:","");
+    var hoaHong;
+    if (Number.parseFloat(tongDoanhThu)){
+        if (tongDoanhThu <= Math.pow(10,8) && 0 < tongDoanhThu){
+            hoaHong = 5 * tongDoanhThu / 100;
+            document.write("<p>5% Hoa hồng bạn nhận được với tổng doanh thu <= 100 triệu là: "+hoaHong+" </p>");
+        }else if(Math.pow(10,8) < tongDoanhThu && tongDoanhThu <= 3*Math.pow(10,8)){
+            hoaHong = 10 * tongDoanhThu / 100;
+            document.write("<p>10% Hoa hồng bạn nhận được với tổng doanh thu >100 triệu và <= 300 triệu là: "+hoaHong+" </p>");
+        }else {
+            hoaHong = 20 * tongDoanhThu / 100;
+            document.write("<p>20% Hoa hồng bạn nhận được với tổng doanh thu > 300 triệu là: "+hoaHong+" </p>");
+        }
+    }
+    //Bài 7
+    document.write("<p>Bài 7</p>");
+    var soPhutDaSuDung = prompt("Nhập số phút đã sử dụng:","");
+    var phiSuDung;
+    if(soPhutDaSuDung > 200){
+        phiSuDung = (soPhutDaSuDung - 200)*200 + 150*400 + 50 * 600;
+        document.write("<p>Phí sử dụng: "+phiSuDung+"</p>");
+    }else if(soPhutDaSuDung > 50){
+        phiSuDung = (soPhutDaSuDung - 50)*400 + 50 * 600;
+        document.write("<p>Phí sử dụng: "+phiSuDung+"</p>");
+    }else{
+        phiSuDung = soPhutDaSuDung * 600;
+        document.write("<p>Phí sử dụng: "+phiSuDung+"</p>");
+    }
+
+</script>
+</body>
+</html>
