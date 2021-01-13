@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-fluid {
+            max-width: 940px;
+        }
+
+        .puzzles {
+            margin-top: 1em;
+            margin: auto;
+            margin-left: 270px;
+
+        }
+
+        img {
+            display: block;
+            margin: 1em;
+            padding: 0.2em;
+            box-shadow: 2px 3px 3px black;
+            width: 600px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+<div class="puzzles">
+    <img id="img1" src="./image1/panda_swap_part1x1.jpg" alt="" style="box-shadow: black 2px 3px 3px;" onclick="clickImage(this)">
+    <img id="img2" src="./image1/panda_swap_part2x1.jpg" alt="" style="box-shadow: black 2px 3px 3px;" onclick="clickImage(this)">
+    <img id="img3" src="./image1/panda_swap_part3x1.jpg" alt="" style="box-shadow: black 2px 3px 3px;" onclick="clickImage(this)">
+    <img id="img4" src="./image1/panda_swap_part4x1.jpg" alt="" style="box-shadow: black 2px 3px 3px;" onclick="clickImage(this)">
+    <img id="img5" src="./image1/panda_swap_part5x1.jpg" alt="" style="box-shadow: #000000 2px 3px 3px;" onclick="clickImage(this)">
+</div>
+<script>
+    function clickImage(input){
+        const panda_swap = "panda_swap";
+        const funny_cat1 = "funny-cat1";
+        const monkey = "monkey";
+        // var imageSrc = input.src;
+        if (input.src.includes(panda_swap)){
+            input.src =  input.src.replace(panda_swap,funny_cat1)
+        }else if(input.src.includes(funny_cat1)){
+            input.src =  input.src.replace(funny_cat1,monkey)
+        }else {
+            input.src =  input.src.replace(monkey,panda_swap)
+        }
+        input.src = input.src.replace("http://localhost:63342/Javascript",".")
+        let srcImg1 = document.getElementById("img1").src;
+        let srcImg2 = document.getElementById("img2").src;
+        let srcImg3 = document.getElementById("img3").src;
+        let srcImg4 = document.getElementById("img4").src;
+        let srcImg5 = document.getElementById("img5").src;
+
+        let listSrcImg = [srcImg1,srcImg2,srcImg3,srcImg4,srcImg5];
+
+        let checkPanda = checkDuplicateImage(listSrcImg,panda_swap);
+        let checkCat = checkDuplicateImage(listSrcImg,funny_cat1);
+        let checkMonkey = checkDuplicateImage(listSrcImg,monkey);
+
+        if(checkPanda|| checkCat || checkMonkey){
+            for(let i=0;i<5;i++){
+                document.getElementsByTagName("img")[i].style.border = "thick solid red";
+            }
+        }else{
+            for(let i=0;i<5;i++){
+                document.getElementsByTagName("img")[i].style.border = "none";
+            }
+        }
+    }
+    //Kiểm tra đồng thời tất cả ảnh con có hợp thành một ảnh
+    function checkDuplicateImage(listSrcImg,animal){
+        for (let i = 0;i< 5;i++){
+            if(!listSrcImg[i].includes(animal)){
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+</body>
+</html>
