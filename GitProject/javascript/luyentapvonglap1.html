@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Bài 1
+        // for(let i = 1;i<=100;i++){
+        //     if(i==99){
+        //         alert("Đã hoàn thành.")
+        //     }
+        // }
+        // //Bài 2
+        // let nhietDo;
+        // do{
+        //     nhietDo = parseInt(prompt("Nhập nhiệt độ:"));
+        //     if(nhietDo > 100){
+        //         alert("Hãy giảm nhiệt độ.");
+        //     }else if(nhietDo < 20){
+        //         alert("Hãy tăng nhiệt độ.");
+        //     }
+        // }while(nhietDo > 100 || nhietDo < 20);
+        //Bài 3
+        // let sum = 0;
+        // let x1 = 0;
+        // let x2 = 1;
+        // let count = 0;
+        // for(let i = 0;i< 20;i++){
+        //     sum = x1 + x2;
+        //     x1 =  x2;
+        //     x2 = sum;
+        //     console.log(sum)
+        // }
+        // //Bài 4
+        // while(count != 1){
+        //     sum = x1 + x2;
+        //     x1 =  x2;
+        //     x2 = sum;
+        //     if(sum % 5==0){
+        //         console.log( sum + " chia hết cho 5");
+        //         count++;
+        //     }
+        // }
+        //Bài 5
+        // let sum20NumberFibonaci = 0;
+        // for(let i = 0;i< 20;i++){
+        //     sum = x1 + x2;
+        //     x1 =  x2;
+        //     x2 = sum;
+        //     sum20NumberFibonaci+=sum;
+        //     console.log(sum)
+        // }
+        // console.log(sum20NumberFibonaci)
+        //Bài 6
+        // let count30 = 0;
+        // let i = 1;
+        // let sum30Divisible7 = 0;
+        // while(count30 != 30){
+        //     if(i%7==0){
+        //         count30++;
+        //         sum30Divisible7+=i;
+        //         console.log(i)
+        //     }
+        //     i++;
+        // }
+        // console.log(sum30Divisible7)
+        //Bài 7 
+        for(let i = 1;i<=100;i++){
+            if(i%3==0){
+                console.log("Fizz"+i);
+            }
+            if(i%5==0){
+                console.log("Buzz"+i);
+            }
+            if(i%3==0 && i%5 ==0){
+                console.log("FizzBuzz"+i);
+            }
+        }
+        //Bài 8
+    </script>
+</body>
+</html>

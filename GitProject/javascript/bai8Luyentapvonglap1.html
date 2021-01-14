@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Hãy thử đoán xem</h1>
+    <button onclick="letPlay()" style="margin-left: 610px;width: 100px;height: 50px;" >Chơi</button>
+    <script>
+        function letPlay(){
+            let intervals1 = parseInt(prompt("Nhập mốc BẮT ĐẦU muốn đoán:"));
+            let intervals2 = parseInt(prompt("Nhập mốc CUỐI muốn đoán:"));
+            let myValue;
+            let userValue;
+            let numberOfEntries=0;
+
+            if(intervals1 < intervals2){
+                myValue = Math.floor(Math.random() * (intervals2 - intervals1 + 1) ) + intervals1;
+            }else{
+                myValue = Math.floor(Math.random() * (intervals1 - intervals2 + 1) ) + intervals2  ;
+            }
+
+            console.log(myValue)
+            while(numberOfEntries != 3){
+                userValue = parseInt(prompt("Nhập giá tri bạn muốn đoán trong 2 mốc bạn vừa nhập:"));
+                if(userValue == myValue){
+                    alert("BẠN ĐÃ CHIẾN THẮNG.");
+                    break;
+                }else if(userValue > myValue){
+                    alert( userValue+" > giá trị được random.");
+                }else{
+                    alert(userValue+" < giá trị được random.");
+                }
+                numberOfEntries++;
+                if(numberOfEntries==3){
+                    alert("BẠN ĐÃ THUA.")
+                }
+            }
+          
+        }
+    </script>
+</body>
+</html>

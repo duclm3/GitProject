@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        sout = "<table border='2' width='100%' cellspacing='0' cellpadding='3'>";
+        let aMultiplyb;
+        for(let i = 1;i<=9;i++){
+            for(let j=2;j<=9;j++){
+                sout += "<td>"+j+"x"+i+"="+(j*i)+"</td>"
+            }
+            sout = sout + "</tr>";
+        }
+        sout = sout + "</table>";
+        document.write(sout);
+    </script>
+</body>
+</html>
