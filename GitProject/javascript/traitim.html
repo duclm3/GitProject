@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table style="margin-left:510px;margin-top: 100px;color: red;">
+        <tr>
+            <td>
+                <script>
+                    let i;
+                    let j = 5;
+                    let e = 5;
+                    let kc = "";
+                    kc = mutil12(kc,"&nbsp;");
+                    for(i = 0;i<6;i++){
+                        if(i==0){
+                            document.write("<span>"+kc+"***</span>");
+                        }else{
+                            for(let z = 0;z<j;z++){
+                                document.write("<span>&nbsp;&nbsp;</span>");
+                            }
+                            for(let x = 0;x<e;x++){
+                                document.write("<span>*</span>");
+                            }
+                        }
+                        j--;
+                        e+=2;
+                        document.write("<br>");
+                    }
+                    function mutil12(string1,string2){
+                        for(let k=0;k<12;k++){
+                            string1+=string2
+                        }
+                        return string1;
+                    }
+                </script>
+            </td>
+            <td>
+                <script>
+                    i;
+                    j = 5;
+                    e = 5;
+                    for(i = 0;i<6;i++){
+                        if(i==0){
+                            document.write("<span>"+kc+"***</span>");
+                        }else{
+                            for(let z = 0;z<j;z++){
+                                document.write("<span>&nbsp;&nbsp;</span>");
+                            }
+                            for(let x = 0;x<e;x++){
+                                document.write("<span>*</span>");
+                            }
+                        }
+                        j--;
+                        e+=2;
+                        document.write("<br>");
+                    }
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <script>
+                    let a ;
+                    let b = 31;
+                    let c = 0;
+                    for(a=0;a<8;a++){
+                        for(let f = 0;f<c;f++){
+                            document.write("<span>&nbsp;&nbsp;</span>");
+                        }
+                        for(let d = 0;d<b;d++){
+                            document.write("<span>*</span>");
+                        }
+                        b-=4;
+                        c+=2;
+                        document.write("<br>");
+                    }
+                </script>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
