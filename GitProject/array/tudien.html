@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <input type="text" name="" id="english">
+     <input type="button" name="" id="" onclick="searchName()" value="Search">
+</body>
+<script>
+    let english = ["dog","cat","lion","fish","Dolphin"]
+    let vietnamese  = ["chó","mèo","sư tử","cá","cá heo"]
+    let check = false;
+    function searchName(){
+        let valueInput = document.getElementById("english").value;
+        for (let i=0;i<english.length;i++){
+            if(valueInput == english[i]){
+                document.write(vietnamese[i]);
+                check = true;
+            }
+        }
+        console.log(!check)
+        if(!check){
+            
+            document.write("Không tìm thấy.");
+        }
+    }
+</script>
+</html>
