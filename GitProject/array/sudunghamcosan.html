@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Bài 1
+        let myColor = ["Red", "Green", "White", "Black"];
+        let result1 = myColor.join(",")
+        //Bài 2
+        const num = prompt("Nhập đê:");
+        console.log(typeof num);
+        const str = num.toString();
+        const result2 = [str[0]];//Lấy thằng đầu tiên chuỗi vừa nhập
+        
+        for(let x=1; x<str.length; x++)
+        {
+            //nếu phần tử ở vị trị đứng trước và vị trí đứng liền sau chia hết cho 2 thì
+            //đẩy thêm dấu trừ và vị trí đứng liền trước vào mảng mới.
+            if((str[x-1]%2 === 0)&&(str[x]%2 === 0))
+            {
+                result2.push('-', str[x]);
+            }else
+            {
+                result2.push(str[x]);
+            }
+        }
+        console.log(result2 .join(''));
+        //Bài 3
+        var str = prompt("Mời nhập:");
+        const UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const LOWER = 'abcdefghijklmnopqrstuvwxyz';
+        const result = [];
+        
+        for(let x=0; x<str.length; x++)
+        {
+            if(UPPER.includes(str[x]))
+            {
+            result.push(str[x].toLowerCase());
+            }
+            else if(LOWER.includes(str[x]))
+            {
+            result.push(str[x].toUpperCase());
+            }
+            else 
+            {
+            result.push(str[x]);
+            }
+        }
+        console.log(result.join(''));
+    </script>
+</body>
+</html>
