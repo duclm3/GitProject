@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <h3>Caro Game Simple</h3>
+    <p id="carogame" />
+    <input type="button" value="Change Value" onclick="changeValue()">
+</body>
+    <script>
+        let currentPlayer = "o";
+        let changeXO = 1;
+        let b = document.getElementById("carogame");
+        let board = [];
+        let data = "";
+        for (let i = 0; i < 8; i++) {
+            board[i] = new Array(0, 0, 0, 0, 0, 0, 0, 0);
+        }
+        
+        function printTicAndToe(){
+            for (let i = 0; i < 8; i++) {
+            data += "<br/>";
+                for (let j = 0; j < 8; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+        }
+
+        printTicAndToe()
+        data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+        b.innerHTML = data;
+        function changeValue(XO) {
+            let positionX = parseInt(prompt("X: "));
+            let positionY = parseInt(prompt("Y: "))
+            currentPlayer = currentPlayer ===  "x"?"o":"x";
+            board[positionX][positionY] = currentPlayer;
+            data = "";
+            printTicAndToe();
+            //check Phải 
+            function checkRight(i){
+                try {
+                    if(board[positionX][positionY+i]==currentPlayer){
+                        return true;
+                    }
+                } catch (error) {
+                    return false;
+                }
+            }//check Trái 
+            function checkLeft(i){
+                try {
+                    if(board[positionX][positionY-i]==currentPlayer){
+                        return true;
+                    }
+                } catch (error) {
+                    return false;
+                }
+            }//Phải lên
+            function checkRightUp(i){
+                try {
+                    if(board[positionX-i][positionY+i]==currentPlayer){
+                        return true;
+                    }
+                } catch (error) {
+                    return false;
+                }
+            }//Phải xuống
+            function checkRightDown(i){
+                try {
+                    if(board[positionX+i][positionY+i]==currentPlayer){
+                        return true;
+                    }
+                } catch (error) {
+                    return false;
+                }
+            }//Trái lên
+            function checkLeftUp(i){
+                try {
+                    if(board[positionX-i][positionY-i]==currentPlayer){
+                        return true;
+                    }
+                } catch (error) {
+                    return false;
+                }
+            }// Trái xuống
+            function checkLeftDown(i){
+                try {
+                    if(board[positionX+i][positionY-i]==currentPlayer){
+                        return true;
+                    }
+                } catch (error) {
+                    return false;
+                }
+            }
+            // Trên
+            function checkDown(i){
+                try {
+                    if(board[positionX+i][positionY]==currentPlayer){
+                        return true;
+                    }
+                } catch (error) {
+                    return false;
+                }
+            }
+            // Dưới
+            function checkUp(i){
+                try {
+                    if(board[positionX-i][positionY]==currentPlayer){
+                        return true;
+                    }
+                } catch (error) {
+                    return false;
+                }
+            }
+            let checkDonwX2 = checkDown(1)&&checkDown(2);
+            let checkRightX2 = checkRight(1)&&checkRight(2);
+            let checkLeftX2 = checkLeft(1)&&checkLeft(2);
+            let checkRightDownX2 = checkRightDown(1)&&checkRightDown(2);
+            let checkLeftRight = checkLeft(1)&&checkRight(1);
+            let checkLeftDownX2 = checkLeftDown(1)&&checkLeftDown(2);
+            let checkUpX2 = checkUp(1)&&checkUp(2);
+            let checkRightUpX2 = checkRightUp(1)&&checkRightUp(2);
+            let checkLeftUpX2 = checkLeftUp(1)&&checkLeftUp(2);
+
+            if(positionX == 0 ){
+                if(positionY ==0){
+                    if(checkRightX2||checkDonwX2||checkRightDownX2){
+                        alert(currentPlayer+ " IS WINNER");
+                        location.reload(); 
+                    }
+                }else if(positionY == 1){
+                    if(checkLeftRight||checkRightX2||checkDonwX2||checkRightDownX2){
+                        alert(currentPlayer+ " IS WINNER");
+                        location.reload(); 
+                    }
+                }else if(positionY == 6){
+                    if(checkLeftRight||checkLeftX2||checkDonwX2||checkLeftDownX2){
+                        alert(currentPlayer+ " IS WINNER");
+                        location.reload(); 
+                    }
+                }else if(positionY == 7){
+                    if(checkLeftX2||checkDonwX2||checkLeftDownX2){
+                        alert(currentPlayer+ " IS WINNER");
+                        location.reload(); 
+                    }
+                }else{
+                    if(checkLeftRight||checkLeftX2||checkRightX2||checkDonwX2||checkLeftDownX2||checkRightDownX2){
+                        alert(currentPlayer+ " IS WINNER");
+                        location.reload(); 
+                    }
+                }
+            }else if(positionX == 7){
+                if(positionY ==0){
+                    if(checkUpX2||checkRightX2||checkRightUpX2){
+                        alert(currentPlayer+ " IS WINNER");
+                        location.reload(); 
+                    }
+                }else if(positionY == 1){
+                    if(checkLeftRight||checkRightX2||checkUpX2||checkRightUpX2){
+                        alert(currentPlayer+ " IS WINNER");
+                        location.reload(); 
+                    }
+                }else if(positionY == 6){
+                    if(checkLeftRight||checkLeftX2||checkUpX2||checkLeftUpX2){
+                        alert(currentPlayer+ " IS WINNER");
+                        location.reload(); 
+                    }
+                }else if(positionY == 7){
+                    if(checkLeftX2||checkUpX2||checkLeftUpX2){
+                        alert(currentPlayer+ " IS WINNER");
+                        location.reload(); 
+                    }
+                }else{
+                    if(checkLeftRight||checkLeftX2||checkRightX2||checkUpX2||checkLeftUpX2||checkRightUpX2){
+                        alert(currentPlayer+ " IS WINNER");
+                        location.reload(); 
+                    }
+                }
+            }else{
+                if(checkLeftRight||checkLeftX2||checkRightX2||checkUpX2||checkDonwX2
+                    ||checkRightUpX2||checkRightDownX2||checkLeftUpX2||checkLeftDownX2){
+                        alert(currentPlayer+ " IS WINNER");
+                        location.reload(); 
+                    }
+            }
+            data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+            b.innerHTML = "<hr/>" + data;
+        }
+    </script>
+</html>

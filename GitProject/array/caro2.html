@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <h3>Caro Game Simple</h3>
+    <p id="carogame" />
+    <input type="button" value="Change Value" onclick="changeValue()">
+</body>
+    <script>
+        let currentPlayer = "o";
+        let changeXO = 1;
+        let b = document.getElementById("carogame");
+        let board = [];
+        let data = "";
+        for (let i = 0; i < 8; i++) {
+            board[i] = new Array(0, 0, 0, 0, 0, 0, 0, 0);
+        }
+        
+        function printTicAndToe(){
+            for (let i = 0; i < 8; i++) {
+            data += "<br/>";
+                for (let j = 0; j < 8; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+        }
+
+        printTicAndToe()
+        data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+        b.innerHTML = data;
+        function changeValue(XO) {
+            let positionX = parseInt(prompt("X: "));
+            let positionY = parseInt(prompt("Y: "))
+            currentPlayer = currentPlayer ===  "x"?"o":"x";
+            board[positionX][positionY] = currentPlayer;
+            data = "";
+            printTicAndToe();
+            // đằng sau 
+            function checkBehindMinus1(arr){
+                if(arr[positionX-1][positionY-1]==currentPlayer||
+                    arr[positionX][positionY-1]==currentPlayer||
+                        arr[positionX+1][positionY-1]==currentPlayer){
+                        return true;
+                    }
+                return false;
+            }
+            // đằng sau nữa
+            function checkBehindMinus2(arr){
+                if(arr[positionX-2][positionY-2]==currentPlayer||
+                    arr[positionX][positionY-2]==currentPlayer||
+                        arr[positionX + 2][positionY-2]==currentPlayer){
+                            return true;
+                }
+                return false;
+            } 
+            // đằng trước
+            function checkAfterPlus1(arr){
+                if(arr[positionX-1][positionY+1]==currentPlayer||
+                    arr[positionX][positionY+1]==currentPlayer||
+                        arr[positionX+1][positionY+1]==currentPlayer){
+                            return true;
+                }
+                return false;
+            }
+            // đằng trước nữa
+            function checkAfterPlus2(arr){
+                if(arr[positionX-2][positionY+2]==currentPlayer||
+                    arr[positionX][positionY+2]==currentPlayer||
+                        arr[positionX+2][positionY+2]==currentPlayer){
+                                return true;
+                            }
+                return false;
+            }
+            // Ở giữa
+            function checkMiddle(){
+                if(arr[positionX-1][positionY]==currentPlayer||
+                    arr[positionX-2][positionY]==currentPlayer||
+                        arr[positionX+1][positionY]==currentPlayer||
+                            arr[positionX+2][positionY]==currentPlayer){
+                                return true;
+                            }
+                return false;
+            }
+            //Nếu X bằng 0
+            function xIsEqual0(){
+                if(positionY == 0){
+                    if(board[positionX][positionY+1] == currentPlayer&&
+                        board[positionX][positionY+2] == currentPlayer){
+                            return true;
+                    }else if(board[positionX+1][positionY+1] == currentPlayer&&
+                                board[positionX+2][positionY+2] == currentPlayer){
+                            return true;      
+                    }else if(board[positionX+1][positionY] == currentPlayer&&
+                                board[positionX+2][positionY] == currentPlayer){
+                            return true;      
+                    }
+                }else if(positionY == 7){
+                    if(board[positionX][positionY-1] == currentPlayer&&
+                        board[positionX][positionY-2] == currentPlayer){
+                            return true;
+                    }else if(board[positionX+1][positionY-1] == currentPlayer&&
+                                board[positionX+2][positionY-2] == currentPlayer){
+                            return true;      
+                    }else if(board[positionX+1][positionY] == currentPlayer&&
+                                board[positionX+2][positionY] == currentPlayer){
+                            return true;      
+                    }
+                }else {
+
+                }
+                return false;
+            }
+            // Bằng 0 check đằng trước và đằng trước nữa
+            // if(positionX == 0 ){
+            //     if(positionY == 0){
+
+            //     }
+            //     if(checkAfterPlus1(board) && checkAfterPlus2(board)){
+            //         alert(currentPlayer+ " IS WINNER");
+            //         location.reload();
+            //     }//Bằng 1 check đằng sau và đằng trước
+            // } else if(positionX == 1 || positionY == 1){
+            //     if(checkAfterPlus1(board) && checkBehindMinus1(board)){
+            //         alert(currentPlayer+ " IS WINNER");
+            //         location.reload(); 
+            //     }//Bằng 6 check đằng sau và đằng trước
+            // }else if(positionX == 6 ||positionY == 6){
+            //     if(checkAfterPlus1(board) && checkBehindMinus1(board)){
+            //         alert(currentPlayer+ " IS WINNER");
+            //         location.reload(); 
+            //     }// Bằng 7 check đằng sau và đằng sau nữa
+            // }else if(positionX == 7 ||positionY == 7){
+            //     if(checkBehindMinus1(board) && checkBehindMinus2(board)){
+            //         alert(currentPlayer+ " IS WINNER");
+            //         location.reload(); 
+            //     }
+            // }else{// đằng trước và đằng trước nữa đúng
+            //     if(checkBehindMinus1(board) && checkBehindMinus2(board)){
+            //         alert(currentPlayer+ " IS WINNER");
+            //         location.reload(); 
+            //       // đằng sau và đằng sau nữa đúng   
+            //     }else if(checkAfterPlus1(board) && checkAfterPlus2(board)){
+            //         alert(currentPlayer+ " IS WINNER");
+            //         location.reload();
+            //       // đằng trước và đằng sau đúng    
+            //     }else if(checkBehindMinus1(board)&& checkAfterPlus1(board)){
+            //         alert(currentPlayer+ " IS WINNER");
+            //         location.reload();  
+            //     }
+            // }
+            
+            
+            data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+            b.innerHTML = "<hr/>" + data;
+        }
+    </script>
+</html>
