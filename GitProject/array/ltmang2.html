@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Bài 1
+        let a = [
+            [1, 2, 1, 24],
+            [8, 11, 9, 4],
+            [7, 0, 7, 27],
+            [7, 4, 28, 14],
+            [3, 10, 26, 7]
+        ];
+
+        for (let i = 0; i < 5; i++) {
+            console.log("row "+i)
+            for (let j = 0; j < 4; j++) {
+                console.log(a[i][j]);               
+            }
+            
+        }
+        //Bài 2
+        let a1 = [ 'c', 's', 'c', '2', '6', '1' ];
+        let result = a1.reverse().join("");
+        console.log(result);
+        //Bài 3,4 
+        let str = "How are 8 8you doing today -8?";
+        let res = str.split(" ");
+        let countNumber = 0;
+        let countWord = 0;  
+        for(let i = 0;i<res.length;i++){
+            if(Number.isInteger(Number(res[i]))){
+                console.log(res[i])
+                countNumber++;
+            }else{
+                countWord++;
+            }
+        }
+        console.log("------------------")
+        console.log(countWord);
+        console.log(countNumber);
+        //Bài 5
+        let str11 = prompt("Nhập vào kí tự:");
+        let str12 = prompt("Nhập vào kí tự:");
+        if(str11 === str12){
+            console.log("Bằng nhau đấy")
+        }else{
+            console.log("Ứ bằng nhau")
+        }
+        //Bài 6 
+        let str21 = prompt("Nhập vào kí tự:");
+        let arr21 = str21.split("");
+        console.log(arr21)
+        for (let i = 0; i < arr21.length; i++) {
+            if(arr21[i] == "-"){
+                arr21[i] = "_";
+            }
+        }
+        console.log(arr21)
+    </script>
+</body>
+</html>
