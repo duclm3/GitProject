@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [0,8,1,9,7,11,5]
+        function insertArr(array,index,value){
+            array.length+=1;
+            for(let i =array.length -1;i>index;i--){
+                array[i] = array[i-1];
+            }
+            array[index] = value;
+            return array;
+        }
+        function deleteArr(array,index){
+            for(let i = index;i<array.length - 1;i++){
+                array[i] = array[i+1];                
+            }
+            array.length-=1;
+            return array;
+        }
+        function checkArrSymmetry(array){
+            for(let i =0;i<array.length/2;i++){
+                if(array[i]!=array[array.length - 1 - i]){
+                    return false;
+                }
+            }
+            return true;
+        }
+        let arrx = [1,2,1];
+        console.log(arr);
+        console.log(insertArr(arr,7,"insert"));
+        console.log(deleteArr(arr,6));
+        console.log(checkArrSymmetry(arrx));
+
+        
+    </script>
+</body>
+</html>

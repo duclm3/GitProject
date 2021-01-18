@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Bài 1
+        let count = 0;
+        
+        let a = [99,1,2,55,5,200,66,1,7,8,-1,100];
+        for(let i = 0;i<a.length;i++){
+            if(a[i]>=10){
+                count++;
+                console.log(a[i]);
+            }
+        }
+        console.log(count);
+        //Bài 2
+        let max = a[0];
+        let indexMax = 0;
+        let mediumOfArr = 0;
+        for(let i = 1;i<a.length;i++){
+            if(max < a[i]){
+                max = a[i];
+                indexMax = i;
+            }
+        }
+        console.log(indexMax);
+        console.log(max);
+        //Bài 3
+        for(let i = 0;i<a.length;i++){
+            mediumOfArr += a[i];
+        }
+        console.log(mediumOfArr);
+        //Bài 4
+        let first = 0; 
+        let last = a.length - 1; 
+        while (first < last) {
+            let b = a[first];
+            a[first] = a[last];
+            a[last] = b;
+            first++;
+            last--;
+        }
+        console.log(a);
+        //Bài 5
+        let count1 = 0;
+        let str = "svkvk----5qp -3ome-1    -55555-6";
+        console.log(str);
+        for(let i = 0;i<str.length;i++){
+            if(str[i]=="-" && parseInt(str[i+1])){
+                count1++;
+            }
+        }
+        console.log(count1);
+        //Bài 6,7,8
+       
+        let lengOfArr = 0;
+        let a2 = [];
+        let check = false;
+        while(lengOfArr!=10){
+            let element = parseInt(prompt("Nhập phần tử thứ "+(lengOfArr+1)+":"));
+            a2.push(element);
+            lengOfArr++;
+        }
+        let V = parseInt(prompt("Nhập V:"));
+        let indexOfV = 0;
+        for(let i =0;i<a2.length;i++){
+            if(a2[i] == V){
+                check = true;
+                indexOfV = i;
+                console.log("V is in the array.");
+            }
+        }
+        console.log(a2)
+
+      
+        function deleteArr(array,index){
+            for(let i = index;i<array.length - 1;i++){
+                array[i] = array[i+1]; 
+            }
+            array.length-=1;
+            return array;
+        }
+        if(check){
+            deleteArr(a2,indexOfV);
+        }else{
+            console.log("V is not in the array.");
+        }
+        console.log(a2)
+        console.log(a2.sort(function(a,b){return b-a;}))
+        //Bài 9
+        let lengOfArr = 0;
+        let a3 = [];
+        let b3 = [];
+        let c3 = [];
+        for (let index = 0; index < 20; index++) {
+            c3.push(index);
+        }
+        
+        while(lengOfArr!=5){
+            let element = parseInt(prompt("Nhập phần tử thứ "+(lengOfArr+1)+" mảng a:"));
+            let element1 = parseInt(prompt("Nhập phần tử thứ "+(lengOfArr+1)+" mảng b:"));
+            a3.push(element);
+            b3.push(element);
+            lengOfArr++;
+        }
+        c3 = a3.concat(b3);
+    </script>
+</body>
+</html>

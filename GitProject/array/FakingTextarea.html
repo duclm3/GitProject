@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h2>Type anything slowly</h2>
+        <form name="f">
+            <textarea name="txt" cols="40" rows="10" onkeydown="typeTextarea();" readonly></textarea>
+        </form>
+    </center>
+    <script>
+        let a = new Array();
+        a[0] = "T",a[1] = "Ô",a[2]="I",a[3] = " ";
+        a[4] = "Đ",a[5]="Ẹ",a[6]="P",a[7] = " "
+        a[8] = "T",a[9]="R",a[10] = "A",a[11] = "I",a[12] = " ";
+        a[13] = "G",a[14]="H",a[15]="Ê",a[16] = " ";
+        let a1 = new Array();
+        let n = "";
+        let lengthPlusPlus = 1;
+        function typeTextarea(){
+            if(lengthPlusPlus!=a.length){
+                for(let i = 0;i<lengthPlusPlus;i++){
+                    a1.push(a[i]);
+                }
+                n = a1.join("");
+                document.f.txt.value = n;
+                a1.length = 0;
+                lengthPlusPlus++;
+                n="";
+            }else{
+                lengthPlusPlus = 1;
+                document.f.txt.value = "";
+            }
+            
+        }
+    </script>
+</body>
+</html>
