@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isPalindrome(x){
+            if(x[0] != x[x.length-1]){
+                return false;
+            }
+            x = x.slice(1,x.length-1)
+            if(x.length <= 1){
+                return true;
+            }
+            return isPalindrome(x);
+        }
+        let x = "accyycca";
+        console.log(isPalindrome(x));
+    </script>
+</body>
+</html>

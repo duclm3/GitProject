@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleqlsp.css">
+</head>
+<body>
+    <div>
+        <h3>Add new product</h3>
+        <input type="text" name="" id="nameproduct" placeholder="New Product">
+        <button onclick="addProduct()">Add</button>
+    </div>
+    <h3>Display All Product</h3>
+    <table id="tableProduct">
+        <script>
+            let products = ["sony","samsung","nokia","xiaomi","apple","fujitsu","oppo"];
+            
+            function printProduct(){
+                let scout = "";
+                scout+="<tr><th>Product Name<th></tr>";
+                for(let i = 0;i<products.length;i++){
+                    scout+="<tr>";
+                    scout+= "<td>"+products[i]+"</td>";
+                    scout+= `<td><button onclick="editProduct(${i})">edit</button></td>`;
+                    scout+= `<td><button onclick="delteProduct(${i})">delete</button></td>`;
+                    scout+= "</tr>";   
+                }           
+                document.getElementById("tableProduct").innerHTML = scout;
+            }
+    
+            function addProduct(arr){
+                let product = document.getElementById("nameproduct").value;
+                products.push(product);
+                alert("Đã thêm phần tử:"+product);
+                printProduct();
+            }
+
+            function delteProduct(index){
+                for(let i = index;i<products.length - 1;i++){
+                    products[i] = products[i+1];                
+                }
+                products.length-=1;
+                printProduct();
+            }
+
+            function editProduct(index){
+                let value = prompt("Nhập tên sản phẩm:");
+                products[index] = value;
+                printProduct();
+            }
+            printProduct();
+        </script>
+    </table>
+    
+   
+</body>
+</html>
