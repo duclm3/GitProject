@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Bài 1
+        function square(number){
+            return number**2;
+        }
+        console.log(square(9));
+        //Bài 2 
+        function areaCircle(radius){
+            return (radius**2)*Math.PI;
+        }
+        function circumference(radius){
+            return 2*radius*Math.PI;
+        }
+        console.log(areaCircle(15));
+        console.log(circumference(15));
+        //Bài 3
+        function factorial(number){
+            if(number==2)
+                return 2;
+            return number*factorial(number - 1);    
+        }
+        console.log(factorial(5))
+        //Bài 4
+        let x = prompt("Nhập x:");
+        function checkNumber(number){
+            if(Number.parseInt(number)){
+                return true;
+            }
+            return false;
+        }
+        console.log(checkNumber(x));
+        //Bài 5
+        function compare3Number(a,b,c){
+            return a > b ? (b > c ? c : b):( c > a ? a : c);
+        }
+        console.log(compare3Number(0,15,-99));
+        //Bài 6
+        function integers(number){
+            if(Number.parseInt(number)){
+                number = Number.parseInt(number)
+                if(number > 0){
+                    return true;
+                }
+            }
+            return false;
+        }
+        console.log(integers(9999999))
+        //Bài 7
+        function swap(a,b){
+            b = [a,a=b][0];
+        }
+        console.log(a,b);
+        //Bài 8
+        let a = [1,2,3,4,5,6,99,0,11];
+        function reveresArr(x){
+            for(let i = 0;i< x.length/2;i++){
+                x[i] = [x[x.length - i -1],x[x.length - i -1] = x[i]][0]
+            }
+            return x;
+        }
+        console.log(reveresArr(a));
+        //Bài 9
+        function checkStrInArr(a,str){
+            let count = 0;
+            if(a.indexOf(str)>-1){
+                for(let i = 0;i<a.length;i++){
+                    if(a[i]==str){
+                        count += 1;
+                    }
+                }
+            }else{
+                return -1;
+            }
+            return count
+        }
+        let myarr = ["I", "like", "turtles","I","I"];
+        console.log(checkStrInArr(myarr,"aaa"));
+    </script>
+</body>
+</html>

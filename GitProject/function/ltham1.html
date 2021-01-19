@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    <script onload="alertMessage();plusOne(`${x}`)">
+        //Bài 1
+        function alertMessage(){
+            alert("Xin chào.");
+        }
+        //Bài 2
+        var x = prompt("Number:")
+        function plusOne(number){
+            if(Number.parseInt(number)){
+                return Number.parseInt(number)+1;
+                document.write(Number.parseInt(number)+1 + "\n");
+            }
+            return false;
+        }
+        document.write(plusOne(x));
+
+        //Bài 3
+        let a = prompt("a:");
+        let b = prompt("b:");
+        function greaterThanAPlus(a,b){
+            if(Number(a)&&Number(b)){
+                a = Number.parseInt(a);
+                b = Number.parseInt(b);
+                if(a>b){
+                    alert(a+">"+b);
+                }else {
+                    return a+b;
+                }
+            }
+        }
+        console.log(greaterThanAPlus(a,b));
+        //Bài 4
+        function addNumbers() {
+            firstNum = 4;
+            secondNum = 8;
+            result = firstNum + secondNum;
+            alert(result)
+            return result;
+        }
+        result = 0;
+        alert(result)
+        result = addNumbers(); 
+        //Bài 5
+        let lonelyStar = prompt("Nhập tên ngôi sao:");
+        let stars1 = ["Polaris","Aldebaran","Deneb"," Vega","Altair","Dubhe"," Regulus"];
+        let stars2 = [ "Ursa Minor","Tarurus","Cygnus","Lyra","Aquila","Ursa Major","Leo"];
+        function star(str){
+            let z =-1;
+            for(let i=0;i<stars1.length;i++){
+                if(str == stars1[i]){
+                    z = i;
+                }
+            }
+            if(z != -1){
+                document.write("Ngôi sao "+str +" thuộc chòm sao "+stars2[z] );
+                return stars2[z];
+            }else{
+                document.write("Không tìm thấy ngôi sao này");
+            }
+            return "Không tìm thấy ngôi sao này";
+        }
+        star(lonelyStar);
+    </script> 
+</body>
+</html>
