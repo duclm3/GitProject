@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Có một thông số về trạng thái pin tính bằng đơn vị số nguyên (tối đa 100 đv)
+        Có một vùng nhớ dùng để lưu tin nhắn đang soạn thảo.
+        Có một vùng nhớ dùng để lưu tin nhắn trong hộp thư đến.
+        Có một vùng nhớ dùng để lưu tin nhắn đã gửi.
+
+        Có chức năng kiểm tra trạng thái điện thoại bật hay tắt.
+        Có chức năng bật và tắt điện thoại.
+        Có chức năng xạc pin điện thoại.
+
+        Có chức năng soạn tin nhắn.
+
+        Có chức năng nhận tin nhắn từ một chiếc mobile khác. ?
+
+
+
+
+        Có chức năng gửi tin nhắn tới một chiếc mobile khác. ?
+
+        Có chức năng xem tin trong hộp thư đến.
+
+        Có chức năng xem tin đã gửi.
+
+        Sau mỗi lần sử dụng một chức năng, năng lượng pin sẽ giảm đi một đơn vị.
+        Các chức năng không thể hoạt động nếu điện thoại chưa bật.
+        */
+
+        //status trạng thái on off
+        function Mobile(pinStatus,status){
+            this.pinStatus = pinStatus;
+            this.messageMaking = "";//Lưu đang soạn
+            this.messageInbox = [];//Thư đến
+            this.messageSent = [];//Đã gửi
+            this.status = status;
+            if(!this.status){
+                do {
+                    let r = confirm("Your phone is turn OFF. Turn ON please!");
+                    if(r==true){
+                        this.status = true;
+                        break;
+                    }else{
+                        alert("Please turn on your phone to use."); 
+                    }
+                } while(true);  
+            }
+           
+            if(this.pinStatus > 100 || this.pinStatus < 0){
+                alert("0<= Your battery <= 100%,please re-enter.");
+                let x;
+                do {
+                    x = prompt("Enter the battery:");
+                    if(Number.parseInt(x) && Number.parseInt(x) <=100){
+                        this.pinStatus = Number.parseInt(x);
+                        break;
+                    }else{
+                        alert("Your battery <= 100%,please re-enter.");
+                    }
+                } while (true);
+            }
+
+            this.statusPhone = function(){//Kiểm tra đang bật hay đang ko
+                if(this.status){
+                    return true;
+                }else{
+                    return false;
+                }
+                pinStatus --;
+            }
+            this.refillPin = function(energyAmount){//Kiểm tra pin
+                if(this.pinStatus == 100){
+                    alert("Your battery if full");
+                }else{
+                    this.pinStatus+=energyAmount;
+                }
+            }
+            this.texting = function(messageMaking){//soạn tin nhắn
+                this.messageMaking = messageMaking;
+                pinStatus--;
+            }
+           
+            this.sendMessage = function (){ //Gửi tin nhắn
+                this.messageSent.push(this.messageMaking);
+                pinStatus--;
+                return this.messageMaking;
+            }
+
+            this.getMessage = function (value){//Nhận tin nhắn
+                pinStatus--;
+                objectPhone.messageInbox.push(this.messageMaking);
+                this.messageInbox.push(messageInbox);
+            }
+
+            this.readIncomingMessage = function(){ // Đọc tin nhắn tới
+                pinStatus--;
+                for(let i =0;i<this.messageInbox.length;i++){
+                    document.write("Tin nhắn "+i+":"+this.messageInbox[i]+"<br>");
+                }
+            }  
+            this.readMessageSent = function(){ // Đọc tin nhắn đã gửi
+                pinStatus--;
+                for(let i =0;i<this.messageSent.length;i++){
+                    document.write("Tin nhắn "+i+":"+this.messageSent[i]+"<br>");
+                }
+            }
+                 
+        }
+        // Có một chiếc điện thoại nokia và một chiếc iphone
+        // Chiếc điện thoại nokia soạn tin nhắn với nội dung bất kỳ và gửi cho chiếc iphoneChiếc iphone kiểm tra inbox và hiển thị tin đó
+        let nokia = new Mobile(100,true);
+        
+        let apple = new Mobile(100,true);
+        nokia.texting("Hello there.");
+        console.log(nokia.messageMaking)
+    </script>
+</body>
+</html>

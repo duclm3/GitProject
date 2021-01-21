@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas1" width="200" height="100" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.</canvas>
+    <canvas id="myCanvas2" width="200" height="100" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.</canvas>
+    <canvas id="myCanvas3" width="200" height="100" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.</canvas>
+    <canvas id="myCanvas4" width="200" height="100" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.</canvas>
+</body>
+</html>
+<script>
+    var c = document.getElementById("myCanvas1");//Lấy ra đối tượng myCanvas1
+    // Đối tượng getContext(“2d”) trong HTML5 sở hữu nhiều hàm dành cho vẽ hình ảnh như hình hộp, 
+    //hình tròn, chữ,… 2 dòng sau vẽ ra một hình chữ nhật:
+    
+    var ctx = c.getContext("2d");
+    ctx.moveTo(0,0); //moveTo(x,y) định điểm bắt đầu
+    ctx.lineTo(200,100); // lineTo(x,y) định điểm kết thúc
+    ctx.stroke(); // Hàm vẽ nét,đường thẳng , hình tròn 
+    //stroke() để hiển thị nét vẽ mà bạn đã định nghĩa với các phương thức moveTo() và lineTo(). 
+
+    var c1 = document.getElementById("myCanvas2");
+    var ctx1 = c1.getContext("2d");
+    ctx1.arc(95,50,40,0,2*Math.PI);//sử dụng hàm arc để vẽ hình tròn
+    ctx1.stroke();
+
+    var c2 = document.getElementById("myCanvas3");
+    var ctx2 = c2.getContext("2d");
+    ctx2.font = "30px Arial"; //font – định kiểu chữ cho đoạn văn bản
+    ctx2.fillText("Hello World",10,50);//fillText(text,x,y) – Viết chữ trên ô canvas 
+                                       //hoặc strokeText(text,x,y) – Viết chữ trên ô canvas và không tô màu chữ
+
+
+    
+    var c3 = document.getElementById("myCanvas4");
+    var ctx3 = c3.getContext("2d");
+    var grd = ctx3.createLinearGradient(0,0,200,0); //dùng createRadialGradient() để quét màu xuất phát từ 1 phía
+    grd.addColorStop(0,"red"); //addColorStop() quy định điểm dừng quét màu dọc theo điểm quét
+    grd.addColorStop(1,"white");//Điểm gradient có thể ở bất kỳ giữa 0 và 1. Sau khi thiết lập gradient, ta dùn
+
+    // Fill with gradient
+    ctx3.fillStyle = grd;
+    ctx3.fillRect(10,10,150,80);
+
+</script>

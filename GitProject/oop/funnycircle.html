@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;">
+</body>
+</html>
+<script>
+    //cx và cy là các toạ độ của hình tròn. 
+    function Circle(x, y, radius){
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
+    //Hàm getRandomHex() sẽ sinh ra một số ngẫu nhiên nằm trong khoảng 0-255.
+    function getRandomHex(){
+        return Math.floor(Math.random()*255);
+    }
+    //Lấy màu ngẫu nhiên
+    function getRandomColor(){
+        var red = getRandomHex();
+        var green = getRandomHex();
+        var blue = getRandomHex();
+        return "rgb(" + red + "," + blue + "," + green +")";
+    }
+
+    //window.innerWidth và window.innerHeight là 2 thuộc tính trả về kích thước của cửa sổ trình duyệt.
+    function createCircle(){
+        var ctx = document.getElementById("myCanvas").getContext("2d");
+        var radius = Math.floor(Math.random() * 80);//Random bán kính trong khoảng từ 0 - 80;
+        var color = getRandomColor();
+        var x = Math.random() * window.innerWidth;// Random toạ độ x,y
+        var y = Math.random() * window.innerHeight;
+        var circle= new Circle(x, y, radius);
+        
+        ctx.stroke();
+        ctx.beginPath();//beginPath() dùng để bắt đầu nét vẽ hoặc thiết lập lại nét vẽ hiện tại
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = color; //Thuộc tính fillStyle dùng để thiết lập hoặc trả về màu, dài màu hoặc mẫu họa tiết để đổ lên hình.(thiết lập màu)
+        ctx.fill();// Phương thức fill() dùng để đổ màu lên hình hiện tại. Mặc định là màu đen(đổ màu)
+    }
+
+    function createMultipleCircle(){
+        for(var i = 0; i < 30; i++){
+            createCircle();
+        }
+            
+    }
+    setInterval(function(){ 
+        createMultipleCircle();
+    }, 1000);
+
+    // createMultipleCircle();
+    // setTimeout(createMultipleCircle,1);
+</script>

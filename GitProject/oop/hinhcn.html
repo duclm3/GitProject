@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas1" width="200" height="100" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.</canvas>
+    <script>
+        var c = document.getElementById("myCanvas1");
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "#FF0000";
+
+        function  Rectangle(cd,cr){
+            this.cd = cd;
+            this.cr = cr;
+            this.getRadius = function() {
+                return cd*cr;
+            }
+            this.getArea = function() {
+                return 2*(cd+cr);
+            }
+            this.draw = function() {
+                ctx.fillRect(0,0,cd,cr); 
+            }
+        }  
+        let rectangle = new Rectangle(100,100);
+        rectangle.draw();
+        document.write("<br>Diện tích:"+rectangle.getRadius()+"<br>");
+        document.write("Chu:"+rectangle.getArea());
+    </script>
+</body>
+</html>

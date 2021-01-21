@@ -7,9 +7,19 @@
 </head>
 <body>
     <script>
-        let x = "You ar";
-        let arr = x.split(""," ");
+        let a = 5;
+        let b = 6;
+        function swap(a, b) {
+            return [b, a];
+        }
+        //đổi chỗ hai phần tử của mảng ban đầu và trả về một mảng mới 
+        [a, b] = swap(a, b);
+        console.log(a);
+        console.log(b);
+        var arr = new Array(10,11);
+        var title = new String("Em ơi Hà Nội phố");
         console.log(arr);
+        console.log(title);
     </script>
 </body>
 </html>

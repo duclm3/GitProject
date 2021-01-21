@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //Khởi tạo lớp
+    function Student(id,name,address){//Lớp
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.getInfor = function(){
+            return "Id="+ this.id + " Name=" + this.name + " Address=" + this.address;
+        }
+    }
+    //Tạo đối tượng thông qua lớp đã khởi tạo
+    var student = new Student(1,"Nguyen Van An","Ha Noi");
+    console.log(student.getInfor());
+    console.log(student.name);
+    //. để truy cập đến các thuộc tính và phương thức của đối tượng
+    //Khởi tạo đối tượng
+    let person = { //Đối tượng
+        name : {
+            first: 'Bob',
+            last: 'Smith'
+        },
+        age: 32,
+        gender: 'male',
+        interests: ['music', 'skiing'],
+        bio: function() {
+            alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+        },
+        greeting: function() {
+            alert('Hi! I\'m ' + this.name[0] + '.');
+        }
+    };
+    person.age;
+    person.interests[1];
+    console.log(person.name.first); 
+    console.log(person.name.last); // dùng cách này để truy xuất đến các thuộc tính của đối tượng
+    console.log(person['name']['last']);// cách này cũng dùng để truy xuất đến các thuộc tính của đối tượng
+
+    //Tạo và thay đổi các thuộc tính hay phương thức của đối tượng
+    //Tạo ra các thành phần mới cho các đối tượng
+    person['eyes'] = 'hazel';
+    person.farewell = function() { alert("Bye everybody!"); }
+    console.log(person.farewell())
+    let myDataName = 'height';
+    let myDataValue = '1.75m';
+    person[myDataName] = myDataValue;
+
+    //Khởi tạo hàm bên ngoài class
+    function Apple (type) {
+        this.type = type;
+        this.color = "red";
+    }
+    Apple.prototype.getInfo = function() {
+        return this.color + ' ' + this.type + ' apple';
+    };
+    //2. Sử dụng object literals
+    let o = {};
+
+    let o1 = new Object();
+
+    let a = [];
+
+    let a1 = new Array();
+</script>
