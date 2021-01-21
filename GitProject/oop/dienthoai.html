@@ -86,17 +86,27 @@
                 this.messageMaking = messageMaking;
                 pinStatus--;
             }
-           
-            this.sendMessage = function (){ //Gửi tin nhắn
-                this.messageSent.push(this.messageMaking);
-                pinStatus--;
-                return this.messageMaking;
+            this.getNamePhone = function(namePhone){
+                return namePhone;
             }
 
-            this.getMessage = function (value){//Nhận tin nhắn
+            this.sendMessage = function (objectPhone,name,name1){ //Gửi tin nhắn
+                let contentSend_ = {
+                    content:this.messageMaking,
+                    to:name
+                }
+               
+                this.messageSent.push(contentSend_); //Đẩy tin nhắn đang soạn vào tn đã gửi
+                objectPhone.getMessage(this.messageMaking,name1);//Đối tượng được gửi gọi lại hàm nhận của bản thân
                 pinStatus--;
-                objectPhone.messageInbox.push(this.messageMaking);
-                this.messageInbox.push(messageInbox);
+            }
+
+            this.getMessage = function (messageInbox,name1){//Nhận tin nhắn
+                let contentGet_ = {
+                    content:this.messageMaking,
+                    from:name1
+                }
+                this.messageInbox.push(contentGet_);
             }
 
             this.readIncomingMessage = function(){ // Đọc tin nhắn tới
@@ -118,8 +128,18 @@
         let nokia = new Mobile(100,true);
         
         let apple = new Mobile(100,true);
+
+        //soạn tin nhắn.
+        let message = "Hello there.";
+        // console.log(Object.keys({apple})[0]) 
         nokia.texting("Hello there.");
-        console.log(nokia.messageMaking)
+        let name = nokia.getNamePhone(Object.keys({apple})[0]);//Lấy ra tên đối tượng định gửi
+        let name1 = nokia.getNamePhone(Object.keys({nokia})[0]);//Lấy ra tên đối tượng gửi
+        console.log(name1);
+        nokia.sendMessage(apple,name,name1);
+        console.log(nokia.messageSent);
+        console.log(apple.messageInbox);
+
     </script>
 </body>
 </html>
