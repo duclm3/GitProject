@@ -7,35 +7,8 @@
 </head>
 <body>
     <script>
-        /*
-        Có một thông số về trạng thái pin tính bằng đơn vị số nguyên (tối đa 100 đv)
-        Có một vùng nhớ dùng để lưu tin nhắn đang soạn thảo.
-        Có một vùng nhớ dùng để lưu tin nhắn trong hộp thư đến.
-        Có một vùng nhớ dùng để lưu tin nhắn đã gửi.
-
-        Có chức năng kiểm tra trạng thái điện thoại bật hay tắt.
-        Có chức năng bật và tắt điện thoại.
-        Có chức năng xạc pin điện thoại.
-
-        Có chức năng soạn tin nhắn.
-
-        Có chức năng nhận tin nhắn từ một chiếc mobile khác. ?
-
-
-
-
-        Có chức năng gửi tin nhắn tới một chiếc mobile khác. ?
-
-        Có chức năng xem tin trong hộp thư đến.
-
-        Có chức năng xem tin đã gửi.
-
-        Sau mỗi lần sử dụng một chức năng, năng lượng pin sẽ giảm đi một đơn vị.
-        Các chức năng không thể hoạt động nếu điện thoại chưa bật.
-        */
-
-        //status trạng thái on off
-        function Mobile(pinStatus,status){
+        function Mobile(pinStatus,status,name){
+            this.name = name;
             this.pinStatus = pinStatus;
             this.messageMaking = "";//Lưu đang soạn
             this.messageInbox = [];//Thư đến
@@ -53,7 +26,7 @@
                 } while(true);  
             }
            
-            if(this.pinStatus > 100 || this.pinStatus < 0){
+            if(this.pinStatus > 100 || this.pinStatus < 0){ //Kiểm tra pin chuyền vào
                 alert("0<= Your battery <= 100%,please re-enter.");
                 let x;
                 do {
@@ -73,9 +46,9 @@
                 }else{
                     return false;
                 }
-                pinStatus --;
+                this.pinStatus --;
             }
-            this.refillPin = function(energyAmount){//Kiểm tra pin
+            this.refillPin = function(energyAmount){//Tăng điện cho đt
                 if(this.pinStatus == 100){
                     alert("Your battery if full");
                 }else{
@@ -84,62 +57,67 @@
             }
             this.texting = function(messageMaking){//soạn tin nhắn
                 this.messageMaking = messageMaking;
-                pinStatus--;
-            }
-            this.getNamePhone = function(namePhone){
-                return namePhone;
+                this.pinStatus--;
             }
 
-            this.sendMessage = function (objectPhone,name,name1){ //Gửi tin nhắn
+            this.sendMessage = function (objectPhone,namePhoneSend,namePhoneGet){ //Gửi tin nhắn
                 let contentSend_ = {
                     content:this.messageMaking,
-                    to:name
+                    to:namePhoneGet
                 }
-               
                 this.messageSent.push(contentSend_); //Đẩy tin nhắn đang soạn vào tn đã gửi
-                objectPhone.getMessage(this.messageMaking,name1);//Đối tượng được gửi gọi lại hàm nhận của bản thân
-                pinStatus--;
+                objectPhone.getMessage(this.messageMaking,namePhoneSend);//Đối tượng được gửi gọi lại hàm nhận của bản thân
+                this.pinStatus--;
             }
 
-            this.getMessage = function (messageInbox,name1){//Nhận tin nhắn
+            this.getMessage = function (messageInbox,name){//Nhận tin nhắn
                 let contentGet_ = {
-                    content:this.messageMaking,
-                    from:name1
+                    content:messageInbox,
+                    from:name
                 }
                 this.messageInbox.push(contentGet_);
             }
 
             this.readIncomingMessage = function(){ // Đọc tin nhắn tới
-                pinStatus--;
-                for(let i =0;i<this.messageInbox.length;i++){
-                    document.write("Tin nhắn "+i+":"+this.messageInbox[i]+"<br>");
-                }
+                document.write("<h2>"+this.name+"</h2>")
+                document.write("<h4>Tin nhắn tới.</h4>")
+                this.messageInbox.forEach(function(item,index) {
+                    document.write("Tin nhắn thứ "+(index+1) +":<br>");
+                    document.write("Từ:"+item.from+"<br>");
+                    document.write("Nội dung:"+item.content +"<br>");
+                    document.write("<hr>")
+                });
+                this.pinStatus--;
+                this.pinStatus--;
             }  
             this.readMessageSent = function(){ // Đọc tin nhắn đã gửi
-                pinStatus--;
-                for(let i =0;i<this.messageSent.length;i++){
-                    document.write("Tin nhắn "+i+":"+this.messageSent[i]+"<br>");
-                }
+                document.write("<h2>"+this.name+"</h2>")
+                document.write("<h4>Tin nhắn đã gửi.</h4>")
+                this.messageSent.forEach(function(item,index) {
+                    document.write("Tin nhắn thứ "+(index+1)+":<br>");
+                    document.write("Tới:"+item.to+"<br>");
+                    document.write("Nội dung:"+item.content +"<br>");
+                    document.write("<hr>")
+                });
+                this.pinStatus--;
             }
                  
         }
-        // Có một chiếc điện thoại nokia và một chiếc iphone
-        // Chiếc điện thoại nokia soạn tin nhắn với nội dung bất kỳ và gửi cho chiếc iphoneChiếc iphone kiểm tra inbox và hiển thị tin đó
-        let nokia = new Mobile(100,true);
+        let nokia = new Mobile(100,true,"Nokia");
         
-        let apple = new Mobile(100,true);
+        let oppo =  new Mobile(100,true,"Oppo");
 
-        //soạn tin nhắn.
-        let message = "Hello there.";
-        // console.log(Object.keys({apple})[0]) 
-        nokia.texting("Hello there.");
-        let name = nokia.getNamePhone(Object.keys({apple})[0]);//Lấy ra tên đối tượng định gửi
-        let name1 = nokia.getNamePhone(Object.keys({nokia})[0]);//Lấy ra tên đối tượng gửi
-        console.log(name1);
-        nokia.sendMessage(apple,name,name1);
+        let apple = new Mobile(100,true,"Apple");
+
+
+        nokia.texting("Hello there apple.");
+        nokia.sendMessage(apple,nokia.name,apple.name);
+        nokia.texting("Hello there oppo.");
+        nokia.sendMessage(oppo,nokia.name,oppo.name);
         console.log(nokia.messageSent);
         console.log(apple.messageInbox);
-
+        // nokia.readMessageSent();
+        apple.readIncomingMessage();
     </script>
 </body>
 </html>
