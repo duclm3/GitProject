@@ -1,0 +1,11 @@
+VĐ1:Không cho xe chạy ra khỏi thẻ canvas
+VĐ2:hiểu code cũ
+
+
+//Mặc định ảnh down
+this.orientation = ORIENTATION_DOWN;
+
+gameBoard.start(); 
+gọi hàm show() ;
+hàm show hiển thị ảnh của chiếc xe đồng thời gán cho vị trí
+của chiếc xe toạ độ mới
