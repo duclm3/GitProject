@@ -7,18 +7,218 @@
 </head>
 <body>
     <script>
-var x = 2;
-var y = [1,2,3,4,5];
-var z = [6,7,8,9,10,11];
 
-if(y[x] + z[x-1] == z[x+2])
-{
-    console.log('Codegym');
+    // var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+    // myFish.splice(2, 1);
+    // console.log(myFish);
+    // var z = [6,9,7,8,8,9,10,11];
+    // var z1 = [[0,6],[0,6],[0,7],[1,8],[0,7],[1,8],[0,6],[0,7],[22,0]];
+    // for (let i = 0; i < z1.length-1; i++) {
+    //     for (let j = i+1; j < z1.length; j++) {
+    //         if(z1[i][0] == z1[j][0] && z1[i][1]==z1[j][1]){
+    //             z1.splice(j,1);
+    //         }
+    //     }
+    // }
+    // console.log(z1);
+    //
+    // let str = "07:05:45PM";
+    // console.log(str.slice(0,str.length-2));
+    // console.log(str.slice(0,2));
+    // let t =  parseInt(str.slice(0,2)) + 12;
+    // str = str.slice(2);
+    // console.log(t);
+    // console.log(str);
+    // str = t + str;
+    // console.log(str)
+
+
+    // function timeConversion(s) {
+    //     let cutAmPm = s.slice(0,s.length-2);//cắt PM AM
+    //     let cutTime = cutAmPm.slice(0,2); // Lấy ra giờ
+    //     if(s[s.length-2] == "A"){
+    //         if(cutTime == "12"){
+    //             return "00" + cutAmPm.slice(2);
+    //         }else{
+    //             return cutAmPm;
+    //         }
+    //     }else{
+    //         if(cutTime == "12"){
+    //             return cutTime + cutAmPm.slice(2); 
+    //         }
+    //         return (parseInt(cutTime) + 12) + cutAmPm.slice(2);
+    //     }
+    // }
+    // console.log(timeConversion("12:40:22AM"));
+
+// function kangaroo(x1, v1, x2, v2) {
+//     while(true && v2 < v1){
+//         x1+=v1;
+//         x2+=v2;
+//         if(x1==x2){
+//             return "YES";
+//         }
+//         if(x1>x2){
+//             return "NO"
+//         }
+//     }
+//     return "NO";
+// }
+// console.log(kangaroo(0,2,5,3))
+
+
+// Cho hai mảng số nguyên arr và brr không trùng lặp, hãy tìm các số nguyên sao cho:
+
+// Số nguyên đó chia hết cho tất cả các phần tử của mảng arr
+// Tất cả các phần tử của mảng brr đều chia hết cho số nguyên đó.
+// let a = [2,4];
+// let b = [16,32,96];
+// function getTotalX(a, b) {
+//     let usc = [];
+//     let bsc = [];
+//     let lengthA = 0;
+//     let lengthB = 0;
+//     for(let i =1;i<=100;i++){
+//         for(let j = 0;j<a.length;j++){
+//             if(i % a[j] == 0){
+//                 lengthA+=1;
+//             }else{
+//                 lengthA = 0;
+//             }
+//             if(lengthA == a.length){
+//                 usc.push(i);
+//                 lengthA = 0;
+//             }
+//         } 
+       
+//     }
+//     for(let i = 0;i<usc.length;i++){
+
+//         for(let j = 0;j < b.length;j++){
+//             if(b[j] % usc[i]==0){
+//                 lengthB++; 
+//                 console.log(b[j],usc[i],lengthB);
+//             }else{
+//                 lengthB = 0;
+//             }
+//             if(lengthB == b.length){
+//                 bsc.push(usc[i]);
+//                 lengthB = 0;
+//             }
+//         }
+//     }
+//     // console.log(bsc);
+//     return bsc.length;
+// }
+// console.log(getTotalX(a,b));
+
+// let a = [3,4 ,21, 36, 10, 28, 35, 5, 24, 42];
+// function breakingRecords(scores) {
+//     let max = scores[0],min = scores[0];
+//     let countMax = 0;countMin = 0;
+//     for (let i = 1; i < scores.length; i++) {
+//         console.log(max);
+//         if(max < scores[i]){
+//             console.log("SSSS");
+//             max = scores[i];
+//             countMax++;
+//         }
+//         if(min > scores[i]){
+//             min = scores[i];        
+//             countMin++;
+//         }      
+//     }
+//     return [countMax,countMin];
+// }
+// console.log(breakingRecords(a));
+// let a = [5,2 ,2 ,1, 5, 3, 2];
+// let b = [1,1,1,1,1,1]
+// function birthday(s, d, m) {
+//     let m0 = 0;
+//     let count = 0;
+//     let sum = 0;
+//     // let length = s.length == 1 ? 1 : s.length - 1;
+//     for(let i = 0;i<s.length;i++){
+//         m0 = i;
+//         while(m0 < i+m && i+m <= s.length){
+//             document.write("m0:"+m0+"<br>")
+//             console.log(i+m);
+//             sum+=s[m0];
+//             m0++;
+//         }
+//         if(sum==d){
+//             document.write("sum:"+sum+"<br>");
+//             count++;
+//             sum = 0;
+//         }else {
+//             sum = 0;
+//         }
+//         document.write("<hr>")  
+//     }
+//     return count;
+// }
+// console.log(birthday(a,9,3));
+// console.log(birthday(b,3,2));
+
+// function divisibleSumPairs(n, k, ar) {
+//     let count = 0;
+//     for (let i = 0; i < ar.length - 1; i++) {
+//         for(let j = i+1;j<ar.length;j++){
+//             if((ar[i] + ar[j]) % k == 0 && i < j ){
+//                 count ++;
+//             }
+//         }
+//     }
+// }
+let a = [1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4,9];
+function migratoryBirds(arr) {
+    let arrCompare = [];
+    let arrCompare2 = {};
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        for(let j = 0; j < arr.length; j++){
+            if(arr[i] == arr[j] && i != j){
+                count++;
+            }
+        }
+        arrCompare[arr[i]] = (count+1);
+        count = 0;
+    }
+    let max = Math.max(...Object.values(arrCompare));
+    let keyArr = Object.key(arrCompare);
+    let lastArr = [];
+    keyArr.forEach(key => {
+        if (arrCompare[type] === max) {
+            lastArr.push(type);
+        }
+    })
+    return Math.min(...lastArr);
 }
-else
-{
-    console.log('Agilead');
+migratoryBirds(a);
+function ab(arr){
+    const freqObject = arr.reduce((acc, value) => {
+        if(acc[value]) {
+            acc[value]++;
+        } else {
+            acc[value] = 1
+        }
+        console.log(acc);
+        console.log(value);
+        
+        return acc;
+    }, {})
+    console.log(freqObject);
+    const highest = Math.max(...Object.values(freqObject));
+    console.log(highest)
+    const types = Object.keys(freqObject)
+    console.log(types)
+    let mostCommon = []
+    types.forEach(type => {
+        if (freqObject[type] === highest) mostCommon.push(type);
+    })
+    return Math.min(...mostCommon)
 }
+
     </script>
 </body>
 </html>
