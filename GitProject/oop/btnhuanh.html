@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = [
+            [1,5,90],
+            [9,5,12],
+            [1,6,7]
+        ]
+// 1.   Tính tích từng cột ma trận, tìm max, in ra max và hàng max.
+let tichTungCot = [];
+let tich = 1;
+for (let k = 0; k < a.length; k++) {
+    for (let i = 0; i < a.length; i++) {
+        tich *= a[i][k]
+    }
+    tichTungCot.push(tich);
+    tich = 1; 
+}
+console.log(tichTungCot);
+
+let max = a[0][0];
+for (let i = 0; i < a.length; i++) {
+    for (let j = 0; j < a[i].length; j++){
+        if(max < a[i][j]){
+            max  = a[i][j];
+        }
+    }
+}
+let max1 = tichTungCot[0];
+for(let i = 0;i<tichTungCot.length;i++){
+    if(max1 < tichTungCot[i]){
+        max1 = tichTungCot[i]; 
+    }
+}
+console.log(max1);
+// 2.   In ra tổng đường chéo chính, đường chéo phụ
+let tongCheoC = 0;
+let tongCheoP = 0;
+for (let i = 0; i < a.length; i++) {
+    tongCheoC+= a[i][i];
+    tongCheoP+= a[i][a.length - 1 -i ];
+}
+console.log(tongCheoC)
+console.log(tongCheoP)
+// 3.   In ra tổng ma trận trên
+let tongMT = [];
+for (let i = 0; i < a.length; i++) {
+    for (let j = 0; j < a[i].length; j++){
+        tongMT += a[i][j];
+    }
+}
+console.log(tongMT);
+// 4.   In ra tích ma trận dưới
+let tichMT = [];
+for (let i = 0; i < a.length; i++) {
+    for (let j = 0; j < a[i].length; j++){
+        tichMT *= a[i][j];
+    }
+}
+console.log(tichMT);
+    </script>
+</body>
+</html>
