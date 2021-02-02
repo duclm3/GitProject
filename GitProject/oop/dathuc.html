@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function DaThuc(n){
+            this.n = parseInt(n);
+            this.heSo = [];
+            this.nhapDaThuc = function(){
+                for (let i = n; i>=0; i--) {
+                    this.heSo[i] = prompt("Nhập vào hệ số bậc "+i);                    
+                }
+            }
+            this.inRaDaThuc = function(){
+                let str = "";
+                for (let i = n; i>=1; i--) {
+                    str+= this.heSo[i] + 'x^' + i + " + ";                   
+                }
+                str += this.heSo[0];
+                return str;
+            }
+            this.tongHaiDaThuc =  function(dt){
+                let bacNho = dt.n < this.n ? dt.n+1 : this.n+1;
+                let bacLon = dt.n > this.n ? dt.n+1 : this.n+1;
+
+                console.log(bacLon);
+                let dt1 = bacLon === this.n+1 ? this.heSo : dt.heSo; 
+                let tong = [];
+
+                console.log(dt1);
+                console.log(bacNho);
+                
+                for (let i = 0; i<bacNho; i++) {
+                    tong[i] = parseInt(this.heSo[i]) + parseInt(dt.heSo[i]);
+                }
+                if(bacNho !=bacLon){
+                    for(let i = bacNho;i < bacLon;i++){
+                        tong[i] =  dt1[i];
+                    }
+                }
+                return tong;
+            }
+        }
+        let n = prompt("Nhập vào bậc đa thức n:");
+        let dt = new DaThuc(n);
+        dt.nhapDaThuc();
+        console.log(dt.heSo);
+
+        let n1 = prompt("Nhập vào bậc đa thức n1:");
+        let dt1 = new DaThuc(n1);
+        dt1.nhapDaThuc();
+        console.log(dt1.heSo);
+
+        let arr = dt.tongHaiDaThuc(dt1);
+        let dtTong = new DaThuc(arr.length);
+        dtTong.heSo = arr;
+        console.log(dtTong.heSo);
+    </script>
+</body>
+</html>
