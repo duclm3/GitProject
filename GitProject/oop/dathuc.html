@@ -27,13 +27,8 @@
                 let bacNho = dt.n < this.n ? dt.n+1 : this.n+1;
                 let bacLon = dt.n > this.n ? dt.n+1 : this.n+1;
 
-                console.log(bacLon);
                 let dt1 = bacLon === this.n+1 ? this.heSo : dt.heSo; 
                 let tong = [];
-
-                console.log(dt1);
-                console.log(bacNho);
-                
                 for (let i = 0; i<bacNho; i++) {
                     tong[i] = parseInt(this.heSo[i]) + parseInt(dt.heSo[i]);
                 }
@@ -56,7 +51,7 @@
         console.log(dt1.heSo);
 
         let arr = dt.tongHaiDaThuc(dt1);
-        let dtTong = new DaThuc(arr.length);
+        let dtTong = new DaThuc(arr.length-1);
         dtTong.heSo = arr;
         console.log(dtTong.heSo);
     </script>
