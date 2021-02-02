@@ -8,22 +8,56 @@
 <body>
     <canvas id="paper" width="500" height="500"></canvas>
     <script>
-        function ktsnt(a){
-            for(let i  = 2;i<a;i++){
-                if(a%i==0){
-                    return false;
-                }
+           function Polynomial(n) {
+        this.n = n;
+        this.factor = [];
+        this.inputFactor = function () {
+            for (let i = n; i >= 0; i--) {
+                this.factor[i] = prompt("Input factor" + i);
             }
-            return true;
         }
-        let i = 2,j=0;
-        while(j!=100){
-            if(ktsnt(i)){
-                j++;
-                console.log(i);
+        this.display = function () {
+            let str = ''
+            for (let i = n; i > 0; i--) {
+                str += this.factor[i] + 'x^' + i + '+';
             }
-            i++;
+            str += this.factor[0]
+            return str;
         }
+
+    }
+
+    let n1 = prompt("input n1,");
+    let p1 = new Polynomial(n1);
+    p1.inputFactor();
+    alert(p1.display());
+    let n2 = prompt('input n2,');
+    let p2 = new Polynomial(n2);
+    p2.inputFactor();
+    alert(p2.display());
+    let sumFactor = [];
+    let temp = [];
+    console.log(p1.factor);
+    console.log(p2.factor);
+
+    if (n1 > n2) {
+        temp = p2.factor;
+        for (let i = 0; i < (n1 - n2); i++) {
+            temp.unshift(0);
+        }
+        for (let i = n1; i >=0; i--) {
+            sumFactor[i] = p1.factor[i] + temp[i];
+        }
+    } else {
+        temp = p1.factor;
+        for (let i = 0; i < (n2 - n1); i++) {
+            temp.unshift(0);
+        }
+        for (let i = n2; i >= 0; i--) {
+            sumFactor[i] = temp[i] + p2.factor[i];
+        }
+    }
+    console.log(sumFactor);
     </script>
 </body>
 </html>

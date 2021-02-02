@@ -26,15 +26,14 @@
             this.tongHaiDaThuc =  function(dt){
                 let bacNho = dt.n < this.n ? dt.n+1 : this.n+1;
                 let bacLon = dt.n > this.n ? dt.n+1 : this.n+1;
-
                 let dt1 = bacLon === this.n+1 ? this.heSo : dt.heSo; 
                 let tong = [];
                 for (let i = 0; i<bacNho; i++) {
-                    tong[i] = parseInt(this.heSo[i]) + parseInt(dt.heSo[i]);
+                    tong[i] =  (parseInt(this.heSo[i]) + parseInt(dt.heSo[i])).toString();
                 }
                 if(bacNho !=bacLon){
                     for(let i = bacNho;i < bacLon;i++){
-                        tong[i] =  dt1[i];
+                        tong[i] =  dt1[i].toString();
                     }
                 }
                 return tong;
