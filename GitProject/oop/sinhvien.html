@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function SinhVien(ten,tuoi,diem){
+            this.ten = ten;
+            this.tuoi = tuoi;
+            this.diem = diem;
+            this.getTen = function(){
+                return this.ten;
+            }
+            this.getTuoi = function(){
+                return this.tuoi;
+            }
+            this.getDiem = function(){
+                return this.diem;
+            }
+            this.setTen = function(ten){
+                this.ten = ten;
+            }
+            this.setTuoi = function(tuoi){
+                this.tuoi = tuoi;
+            }
+            this.setDiem = function(diem){
+                this.diem = diem;
+            }
+        }
+        function QuanLySV(arrSinhVien){
+            this.arrSinhVien = arrSinhVien;
+            this.add = function(ten,tuoi,diem){
+                let sv = new SinhVien(ten,tuoi,diem);
+                arrSinhVien.push(sv);
+            }
+            this.delete = function(sinhVien){
+                let ten = sinhVien.getTen();
+                let check = false;
+                let index;
+                for (let i = 0; i < this.arrSinhVien.length; i++) {
+                    if (this.arrSinhVien[i].ten == ten) {
+                        check = true;
+                        index = i;
+                        break;
+                    }
+                }
+                if(check){
+                    this.arrSinhVien.splice(index,1);
+
+                }
+            }
+            this.edit = function(sinhVien,ten1,tuoi1,diem1){
+                let ten = sinhVien.getTen();
+                for (let i = 0; i < this.arrSinhVien.length; i++) {
+                    if (this.arrSinhVien[i].ten == ten) {
+                        this.arrSinhVien[i].setTen(ten1);
+                        this.arrSinhVien[i].setTuoi(tuoi1);
+                        this.arrSinhVien[i].setDiem(diem1);
+                        break;
+                    }
+                }
+            }
+        }
+        let sv0 = new SinhVien("Duc0",23,10);
+        let sv1 = new SinhVien("Duc1",23,10);
+        let sv2 = new SinhVien("Duc2",23,10);
+        let sv3 = new SinhVien("Duc3",23,10);
+        let qlsv =  new QuanLySV([sv0,sv1,sv2,sv3]);
+        
+        qlsv.add("Le Minh",22,10);
+        console.log(qlsv);
+        qlsv.delete(sv0);
+        console.log(qlsv);
+        qlsv.edit(sv1,"Le Minh Duc",18,10);
+        console.log(qlsv);
+
+    </script>
+</body>
+</html>

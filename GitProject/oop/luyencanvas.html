@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+</body>
+<script>
+    function hcn(cd,cr,mau){
+        this.cd = cd;
+        this.cr = cr;
+        this.mau = mau;
+        this.getCd = function(){
+            return this.getCd;
+        }
+        this.getCr = function(){
+            return this.getCr;
+        }
+        this.setCd = function(chieuDai){
+            this.cd = chieuDai
+        }
+        this.setCr = function(chieuRong){
+            this.cr = chieuRong;
+        }
+        this.getMau = function(){
+            return this.mau;
+        }
+        this.setMau = function(mau){
+            this.mau = mau;
+        }
+    }
+    // fillRect(x,y,width,height)
+    //x,y là toạ độ
+    let hcn1 = new hcn(150,75,"red");
+    let x = 0,y = 0;
+    function draw(){
+        let c = document.getElementById("myCanvas");
+        let ctx = c.getContext("2d");
+        ctx.fillStyle = hcn1.mau;
+        ctx.fillRect(x,y,hcn1.cd,hcn1.cr);
+        x = moveR(x);
+        ctx.clearRect(0,0,150,75);
+
+        // x = moveR(x);
+    }
+   
+    x = moveR(x);
+    let i = 0;
+    // while(i!=100){
+
+    // }
+   setInterval(() => {
+        let c = document.getElementById("myCanvas");
+        let ctx = c.getContext("2d");
+        ctx.fillStyle = hcn1.mau;
+        ctx.fillRect(x,y,hcn1.cd,hcn1.cr);
+        x = moveR(x);
+        console.log("aa");
+        console.log("b");
+   }, 1000);
+    // setTimeout(,1);
+    
+
+    function moveR(x){
+        x+=10
+        return x;
+    }
+    function moveL(y){
+        y+=10;
+        return y;
+    }
+</script>
+</html>
